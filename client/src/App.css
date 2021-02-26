@@ -1,0 +1,11 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  margin: 0px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden
+}
+
