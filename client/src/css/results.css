@@ -1,0 +1,31 @@
+/* .origin-box {
+
+}
+
+.position-box {
+
+
+}
+
+.destination-box {
+
+
+} */
+
+.result-box {
+
+    height: 55vh;
+    width: 20vw;
+
+    padding: 20px;
+}
+
+.main-results-row {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content:  space-around; 
+  align-items: center;
+  height: 100%;
+
+ 
+}

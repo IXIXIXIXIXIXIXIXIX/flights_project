@@ -8,7 +8,7 @@
   width: 100vw;
   overflow-x: hidden;
   overflow-y: hidden;
-  /* background-color: hotpink; */
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .error-box {

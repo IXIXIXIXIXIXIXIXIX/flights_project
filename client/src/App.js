@@ -3,11 +3,13 @@ import './css/base.css';
 import './css/header.css';
 import './css/tooltip.css';
 import './css/animation.css';
+import './css/results.css';
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SearchContainer from './containers/SearchContainer';
 import NavBar from './ components/NavBar';
 import NotFound from './ components/NotFound';
+import Results from './ components/Results';
 
 
 
@@ -31,6 +33,7 @@ function App() {
               <main className="main-body">
             <Switch>
               <Route path="/search" component={SearchContainer} />
+              <Route path="/testresults" component={Results} />
               <Route exact path="/" render={() => <SearchContainer/>} />
               <Route component={NotFound} />
               </Switch>
