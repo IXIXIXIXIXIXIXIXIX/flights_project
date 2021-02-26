@@ -10,14 +10,24 @@ const SearchContainer = () => {
     const [selectedFlight, setFlight] = useState(null);
 
     // handleSearch()
-    return (
 
-        <div>
-        <p>Latitude: {testCoords.lat}</p>
-        <p>Longitude: {testCoords.lng}</p>
-        <p>Nearest: {testCoords.nearestPlace}</p>
-        </div>
-    )
+
+    if (testCoords.lng){
+        return (
+
+            <div>
+            <p>Latitude: {testCoords.lat}</p>
+            <p>Longitude: {testCoords.lng}</p>
+            <p>Nearest: {testCoords.nearestPlace}</p>
+            </div>
+        );
+    }
+    else
+    {
+        return(
+        <p>loading coordinate data...</p>
+        );
+    }
 }
 
 export default SearchContainer;
