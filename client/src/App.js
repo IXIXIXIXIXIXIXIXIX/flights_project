@@ -1,4 +1,4 @@
-import './App.css';
+import './css/App.css';
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SearchContainer from './containers/SearchContainer';
@@ -18,6 +18,7 @@ function App() {
         </header>
             
             <main className="main-body">
+            
             <Switch>
             <Route path="/search" component={SearchContainer} />
             {/* <Route component={NotFound} /> */}
