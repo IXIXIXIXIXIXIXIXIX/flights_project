@@ -11,22 +11,20 @@ function App() {
   return ( 
     <div className="App" style={{ backgoundImage: `url(${bgPath})`}}>
       
-      <Router>
-        <>
         <header className="header">
               {/* <NavBar handleBGChange={handleBGChange} downloadLink={currentBackGround["url"]}/> */}
         </header>
             
             <main className="main-body">
-            
-            <Switch>
+      <Router>
+        <>
+          <Switch>
             <Route path="/search" component={SearchContainer} />
             {/* <Route component={NotFound} /> */}
             </Switch>
-            </main>
-            </>
+        </>
       </Router>
-
+            </main>
     </div>
   );
 }
