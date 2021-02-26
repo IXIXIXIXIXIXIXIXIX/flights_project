@@ -7,7 +7,6 @@ const api = require("@what3words/api");
             
 const key = apiKeys.threeWords.key;
 api.setOptions({ key: key });
-// import threeWordsToCoords from '../helpers/ThreeWordsToCoords';
 
 
 

@@ -6,6 +6,7 @@ import './css/animation.css';
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SearchContainer from './containers/SearchContainer';
+import NavBar from './ components/NavBar';
 import NotFound from './ components/NotFound';
 
 
@@ -21,21 +22,21 @@ function App() {
 
         {/* <img src={bgImage}/> */}
         
+        <Router>
+          <>
           <header className="header">
-                {/* <NavBar handleBGChange={handleBGChange} downloadLink={currentBackGround["url"]}/> */}
+                <NavBar/>
           </header>
               
               <main className="main-body">
-        <Router>
-          <>
             <Switch>
               <Route path="/search" component={SearchContainer} />
               <Route exact path="/" render={() => <SearchContainer/>} />
               <Route component={NotFound} />
               </Switch>
+              </main>
           </>
         </Router>
-              </main>
       </div>
     );
 }
