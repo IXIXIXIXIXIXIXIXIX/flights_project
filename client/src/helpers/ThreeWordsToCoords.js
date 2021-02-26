@@ -18,7 +18,9 @@ function threeWordsToCoords(wordOne, wordTwo, wordThree) {
         coords.placeName = data.nearestPlace;
         coords.map = data.map;
     })
-    .then(() => {return coords;})
+    
+    
+    return coords;
 };
 
 export default threeWordsToCoords;

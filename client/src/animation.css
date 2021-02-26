@@ -1,0 +1,74 @@
+@keyframes from_right {
+    0% {
+        left: 100%;
+
+    }
+
+    100% {
+        left: 0%;
+
+    }
+
+}
+
+@keyframes from_left {
+    0% {
+        right: 100%;
+
+    }
+
+    100% {
+        right: 0%;
+
+    }
+
+}
+
+@keyframes from_bottom {
+    0% {
+        top: 100%;
+    }
+
+    100% {
+        top: 0%;
+    }
+
+}
+
+@keyframes from_top{
+    0% {
+        bottom: 100%;
+    }
+
+    100% {
+        bottom: 0%;
+    }
+
+}
+.in-from-right {
+    position: relative;
+    animation-name: from_right;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.in-from-left {
+    position: relative;
+    animation-name: from_left;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.in-from-bottom{
+    position: relative;
+    animation-name: from_bottom;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.in-from-top{
+    position: relative;
+    animation-name: from_top;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
