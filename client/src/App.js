@@ -1,22 +1,19 @@
 import './css/App.css';
+import './css/base.css';
+import './css/header.css';
+import './css/tooltip.css';
+import './css/animation.css';
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SearchContainer from './containers/SearchContainer';
+import NotFound from './ components/NotFound';
 
-import BgImg from './bluesky_plane.jpg';
 
 
 function App() {
 
   
   // Free stock photo for inital bckground from https://www.pexels.com/photo/white-plane-on-blue-sky-164646/
-  const BgImg = "/bluesky_plane.jpg";
-
-  const [bgImage, setBgImage] = useState(null);
-
-  useEffect(() => {
-    setBgImage(BgImg);
-  }, []);
 
 
     return ( 
@@ -33,7 +30,8 @@ function App() {
           <>
             <Switch>
               <Route path="/search" component={SearchContainer} />
-              <Route component={SearchContainer} />
+              <Route exact path="/" render={() => <SearchContainer/>} />
+              <Route component={NotFound} />
               </Switch>
           </>
         </Router>

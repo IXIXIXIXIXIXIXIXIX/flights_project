@@ -15,3 +15,19 @@
   width: 80%;
   padding: 20px;
 }
+
+
+.main-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.main-body-row {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content:  space-between; 
+  align-items: center;
+  height: 100%;
+}
