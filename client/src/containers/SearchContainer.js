@@ -13,8 +13,8 @@ api.setOptions({ key: key });
 const SearchContainer = () => {
 
 
-    // const [flightsFound, setFlightsFound] = useState(null);
-    // const [selectedFlight, setFlight] = useState(null);
+    const [flightsFound, setFlightsFound] = useState(null);
+    const [selectedFlight, setFlight] = useState(null);
     const [searchCoords, setSearchCoords] = useState(null);
     const [locationWords, setLocationWords] = useState(null);
 
