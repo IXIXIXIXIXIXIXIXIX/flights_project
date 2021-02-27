@@ -20,10 +20,35 @@ const SearchContainer = () => {
 
 
     // Currently useEffect is only used to stop infinite loops when testing 3w to coords function
-    // useEffect(() => {
-        //CodeClan coordinates
-        // threeWordsToCoords("serve.sweep.kicked");
-    // }, []);
+    useEffect(() => {
+        // CodeClan coordinates
+        //threeWordsToCoords("serve.sweep.kicked");
+        setSearchCoords(
+            {                              
+                {
+                    "country": "GB",
+                    "square": {
+                        "southwest": {
+                            "lng": -0.195543,
+                            "lat": 51.520833
+                        },
+                        "northeast": {
+                            "lng": -0.195499,
+                            "lat": 51.52086
+                        }
+                    },
+                    "nearestPlace": "Bayswater, London",
+                    "coordinates": {
+                        "lng": -0.195521,
+                        "lat": 51.520847
+                    },
+                    "words": "filled.count.soap",
+                    "language": "en",
+                    "map": "https://w3w.co/filled.count.soap"
+                }
+
+        );
+    }, []);
 
 ///////////////////////////////////////////////////////////////////////////
 
