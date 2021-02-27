@@ -62,24 +62,28 @@ const SearchContainer = () => {
     }
 
     // handleSearch()
-    
-    if (searchCoords)
-    {
-        return (
-            <div>
-            <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
-            <p>Latitude: {searchCoords.coordinates.lat}</p>
-            <p>Longitude: {searchCoords.coordinates.lng}</p>
-            <p>Nearest: {searchCoords.nearestPlace}</p>
 
-            </div>
-        );
-    }
-    else
-    {
-        // Render searchbox here
-        return (<h1>Search Now!</h1>);
-    }
+    return (
+    <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
+    );
+
+    // if (searchCoords)
+    // {
+    //     return (
+    //         <div>
+    //         <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
+    //         <p>Latitude: {searchCoords.coordinates.lat}</p>
+    //         <p>Longitude: {searchCoords.coordinates.lng}</p>
+    //         <p>Nearest: {searchCoords.nearestPlace}</p>
+
+    //         </div>
+    //     );
+    // }
+    // else
+    // {
+    //     // Render searchbox here
+    //     return (<h1>Search Now!</h1>);
+    // }
 }
 
 export default SearchContainer;
