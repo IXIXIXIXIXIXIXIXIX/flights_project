@@ -1,0 +1,33 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  margin: 0px;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.error-box {
+  width: 80%;
+  padding: 20px;
+}
+
+
+.main-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.main-body-row {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content:  space-between; 
+  align-items: center;
+  height: 100%;
+}
