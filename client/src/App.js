@@ -10,6 +10,7 @@ import SearchContainer from './containers/SearchContainer';
 import NavBar from './ components/NavBar';
 import NotFound from './ components/NotFound';
 import Results from './ components/Results';
+import List from './ components/List';
 
 
 
@@ -34,6 +35,7 @@ function App() {
             <Switch>
               <Route path="/search" component={SearchContainer} />
               <Route path="/testresults" component={Results} />
+              <Route path="/list" component={List} />
               <Route exact path="/" render={() => <SearchContainer/>} />
               <Route component={NotFound} />
               </Switch>

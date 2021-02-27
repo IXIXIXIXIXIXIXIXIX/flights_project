@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import List from '../ components/List';
 import apiKeys from '../assets/ApiKeys';
 const api = require("@what3words/api");
 
@@ -15,6 +16,7 @@ const SearchContainer = () => {
 
     const [flightsFound, setFlightsFound] = useState(null);
     const [selectedFlight, setFlight] = useState(null);
+    const [flights, setFlights] = useState(null);
     const [searchCoords, setSearchCoords] = useState(null);
     const [locationWords, setLocationWords] = useState(null);
 
@@ -45,16 +47,17 @@ const SearchContainer = () => {
 
 
     const getFlights = () => {
+        console.log("Fetching API...");
         fetch("https://opensky-network.org/api/states/all?lamin=45.8389&lomin=5.9962&lamax=47.8229&lomax=10.5226")
         .then(res => res.json())
-        .then(data => setFlightsFound(data))
+        .then(data => setFlights(data))
     }
 
     useEffect(() => {
         getFlights()
     }, [])
 
-    const handleSelectedFlight = (selectedFlight) => {
+    const handleFlightClick = (selectedFlight) => {
         setFlight(selectedFlight)
     }
 
@@ -63,23 +66,20 @@ const SearchContainer = () => {
     if (searchCoords)
     {
         return (
-
-            // Render List here
             <div>
+            <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
             <p>Latitude: {searchCoords.coordinates.lat}</p>
             <p>Longitude: {searchCoords.coordinates.lng}</p>
             <p>Nearest: {searchCoords.nearestPlace}</p>
 
             </div>
-        )
+        );
     }
     else
     {
         // Render searchbox here
         return (<h1>Search Now!</h1>);
     }
-    
-
 }
 
 export default SearchContainer;

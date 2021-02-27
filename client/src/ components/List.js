@@ -1,26 +1,24 @@
 import React from 'react';
 
 const List = ({flights, onFlightClick}) => {
-    
-    const flightList = flightsFound.map((flight) => {
-        return <tr onClick={() => {onFlightClick(flight)}}>
-        <td>{flight.callsign}</td>
-        <td>{flight.origin_country}</td>
-      </tr>
+
+    console.log("flights", flights);
+
+    const found = [...flights.states];
+
+    console.log("is there any state:", flights.states);
+    const flightListDetails = found.map((flight) => {
+        return <p onClick={() => {onFlightClick(flight)}}>{flight[0]}<br></br>{flight[2]}</p>
     })
+
+    const flightOriginCountry = found.map((flight) => {
+        return <p>{flight[2]}</p>
+    })
+
+    return (
+        <div>
+            {flightListDetails}
+        </div>
+    )
 }
-
-
-return (
-    <div className="flight-list-table">
-        <table style="width:50%">
-            <tr>
-            <th>Flight Number</th>
-            <th>Origin Country</th>
-            </tr>
-            {flightList}
-        </table>
-    </div>
-)
-
 export default List;
