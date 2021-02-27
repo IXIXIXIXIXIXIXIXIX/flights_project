@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha specs",
+    "test": "mocha src/helpers/specs",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
