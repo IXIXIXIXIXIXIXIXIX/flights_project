@@ -7,8 +7,18 @@ describe('PointToArea', function() {
         lat: 45,
         lon: 45
     };
+
+    const codeClanCoords = {
+        lat: 55.8727168,
+        lon: -4.2696704
+    };
+
     const inputSideLength = 20;
     const result = PointToArea(inputCoord, inputSideLength);
+
+    const CCresult = PointToArea(codeClanCoords, inputSideLength); 
+    console.log("result box", CCresult);
+
 
     it('should return an object with a member called maxLon', function() {
         const actual = true;
