@@ -10,13 +10,18 @@ describe('CalculateLengthLonDegree', function() {
 
     it('should return 69 at equator', function () {
         const actual = 69;
-        assert.strictEqual(actual, lengthDegreeLatitude); 
+        assert.strictEqual(actual, CalculateLengthLonDegree(0, lengthDegreeLatitude)); 
     });
 
-    // it('should return 69 at equator', function () {
-    //     const actual = 69;
-    //     console.log("")
-    //     assert.strictEqual(actual, lengthDegreeLatitude); 
-    // });
+    it('should return a positive value given positive input', function () {
+        const result = CalculateLengthLonDegree(45, lengthDegreeLatitude) > 0;
+        const actual = true;
+        assert.strictEqual(actual, result);
+    });
 
+    it('should return a positive value given negative input', function () {
+        const result = CalculateLengthLonDegree(-45, lengthDegreeLatitude) > 0;
+        const actual = true;
+        assert.strictEqual(actual, result);
+    });
 });
