@@ -1,6 +1,5 @@
 const CalculateLengthLonDegree = require('./CalculateLengthLonDegree.js');
 
-
 const PointToArea = function(pointCoords, sidelengthOfSquare) {
 
     // Assume earth is perfect sphere and there are 69 nautical miles per degree of latitude
