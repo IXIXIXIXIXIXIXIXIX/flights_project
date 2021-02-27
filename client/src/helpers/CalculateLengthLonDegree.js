@@ -18,9 +18,7 @@ const CalculateLengthLonDegree = function (latitude, lengthEquatorialDegree) {
         // If latitude is equatorial, all directions are a great circle, so all degrees are same length
         return lengthEquatorialDegree;
     }
-
     return (Math.cos(magLatRadians) * lengthEquatorialDegree);
-
 };
 
 
