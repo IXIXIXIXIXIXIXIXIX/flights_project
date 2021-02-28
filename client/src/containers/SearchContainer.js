@@ -20,40 +20,15 @@ const SearchContainer = () => {
     const [selectedFlight, setFlight] = useState(null);
     const [flights, setFlights] = useState(null);
     const [searchCoords, setSearchCoords] = useState(null);
-    const [searchCoords, setSearchCoords] = useState(null); //TS 
     const [locationWords, setLocationWords] = useState(null);
 
 
     // Currently useEffect is only used to stop infinite loops when testing 3w to coords function
-    useEffect(() => {
+    // useEffect(() => {
         // CodeClan coordinates
         //threeWordsToCoords("serve.sweep.kicked");
-        setSearchCoords(
-            {                              
-                {
-                    "country": "GB",
-                    "square": {
-                        "southwest": {
-                            "lng": -0.195543,
-                            "lat": 51.520833
-                        },
-                        "northeast": {
-                            "lng": -0.195499,
-                            "lat": 51.52086
-                        }
-                    },
-                    "nearestPlace": "Bayswater, London",
-                    "coordinates": {
-                        "lng": -0.195521,
-                        "lat": 51.520847
-                    },
-                    "words": "filled.count.soap",
-                    "language": "en",
-                    "map": "https://w3w.co/filled.count.soap"
-                }
-
-        );
-    }, []);
+        
+    // }, []);
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -120,27 +95,27 @@ const SearchContainer = () => {
     }
     
 
-    return (
-    <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
-    );
+    // return (
+    // <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
+    // );
 
-    // if (searchCoords)
-    // {
-    //     return (
-    //         <div>
-    //         <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
-    //         <p>Latitude: {searchCoords.coordinates.lat}</p>
-    //         <p>Longitude: {searchCoords.coordinates.lng}</p>
-    //         <p>Nearest: {searchCoords.nearestPlace}</p>
+    if (searchCoords)
+    {
+        return (
+            <div>
+            <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
+            <p>Latitude: {searchCoords.coordinates.lat}</p>
+            <p>Longitude: {searchCoords.coordinates.lng}</p>
+            <p>Nearest: {searchCoords.nearestPlace}</p>
 
-    //         </div>
-    //     );
-    // }
-    // else
-    // {
-    //     // Render searchbox here
-    //     return (<h1>Search Now!</h1>);
-    // }
+            </div>
+        );
+    }
+    else
+    {
+        // Render searchbox here
+        return (<h1>Search Now!</h1>);
+    }
 }
 
 export default SearchContainer;
