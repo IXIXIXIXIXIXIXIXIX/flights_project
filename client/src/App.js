@@ -24,11 +24,6 @@ function App() {
     return ( 
       <div className="App" style={{ backgroundImage: `url("https://images.pexels.com/photos/164646/pexels-photo-164646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")` }}>
 
-
-
-
-        {/* <img src={bgImage}/> */}
-        
         <Router>
           <>
           <header className="header">

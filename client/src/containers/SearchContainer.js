@@ -52,7 +52,31 @@ const SearchContainer = () => {
     {
         if (selectedFlight)
         {
+            // Seconds * minutes * hours * days
+            const secondsInPast = 60 * 60 * 24 * 10;
+            const now = new Date();
+
+            const end = Math.floor(now / 1000);
+            const begin = end - secondsInPast;
+
             console.log("Getting further data for:", selectedFlight)
+            const url = `https://opensky-network.org/api/flights/aircraft?icao24=${selectedFlight[0]}&begin=${begin}&end=${end}`
+
+            fetch(url, {
+                method: 'GET',
+                credentials: 'same-origin',
+                redirect: 'follow',
+                agent: 'null',
+                headers: {
+                    "Content-Type": "text/plain",
+                    'Authorization': 'Basic ' + btoa('IXIXIXIXIXIXIXIXIX:sgS27gjbVhJ3Y')
+            }
+            })
+
+            .then(res => res.json())
+            .then(data => console.log("further data:", data));
+
+
 
         }
     };
