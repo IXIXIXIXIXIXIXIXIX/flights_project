@@ -47,7 +47,7 @@ function App() {
           </>
         </Router>
 
-        <div className="App">
+        {/* <div className="App">
       <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
   <TileLayer
     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -59,7 +59,7 @@ function App() {
     </Popup>
   </Marker>
 </MapContainer>
-    </div>
+    </div> */}
 
 
         

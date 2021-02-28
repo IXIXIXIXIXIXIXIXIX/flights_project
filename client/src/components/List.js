@@ -10,7 +10,7 @@ const List = ({flights, onFlightClick}) => {
 
         console.log("is there any state:", flights.states);
         const flightListDetails = found.map((flight) => {
-            return <p onClick={() => {onFlightClick(flight)}}>{flight[0]}<br></br>{flight[2]}</p>
+            return <p><span onClick={() => {onFlightClick(flight)}}>{flight[0]}</span><br></br>{flight[2]}</p>
         })
 
         const flightOriginCountry = found.map((flight) => {

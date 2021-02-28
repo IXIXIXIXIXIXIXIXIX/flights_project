@@ -96,7 +96,7 @@ const SearchContainer = () => {
     else if (flights)
     {
         return (
-            <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
+            <List flights={flights} onFlightClick={(clickedFlight) => {handleFlightClick(clickedFlight)}} />
         );
     }
     else
