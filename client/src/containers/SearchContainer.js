@@ -3,6 +3,7 @@ import List from '../components/List';
 import SearchBox from '../components/SearchBox'
 import Results from '../components/Results';
 import PointToArea from '../helpers/PointToArea';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import apiKeys from '../assets/ApiKeys';
 const api = require("@what3words/api");
 
@@ -96,7 +97,21 @@ const SearchContainer = () => {
     else if (flights)
     {
         return (
+            <>
+            <h2>Choose your flight...</h2>
             <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
+            <MapContainer center={[searchCoords.coordinates.lat, searchCoords.coordinates.lng]} zoom={13} scrollWheelZoom={false}>
+                    <TileLayer
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={[searchCoords.coordinates.lat, searchCoords.coordinates.lng]}>
+                    <Popup>
+                        A pretty CSS3 popup. <br /> Easily customizable.
+                    </Popup>
+                    </Marker>
+                </MapContainer>
+                </>
         );
     }
     else

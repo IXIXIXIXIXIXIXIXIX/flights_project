@@ -1,0 +1,33 @@
+.main-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+  
+.main-list-row {
+    display: flex;
+    flex-direction: row;
+    justify-content:  space-between; 
+    align-items: center;
+    height: 100%;
+}
+
+.list-box {
+
+    height: 190px;
+    width: 300px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    /* text-align: center; */
+}
+
+h2 {
+    color: white;
+    margin-left: 30px;
+    text-align: center;
+}

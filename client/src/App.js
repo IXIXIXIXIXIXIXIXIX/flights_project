@@ -6,6 +6,7 @@ import './css/tooltip.css';
 import './css/animation.css';
 import './css/results.css';
 import './css/search_page.css';
+import './css/list.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
@@ -48,17 +49,6 @@ function App() {
         </Router>
 
         <div className="App">
-      <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
-  <TileLayer
-    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  />
-  <Marker position={[51.505, -0.09]}>
-    <Popup>
-      A pretty CSS3 popup. <br /> Easily customizable.
-    </Popup>
-  </Marker>
-</MapContainer>
     </div>
 
 
