@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from 'react';
-<<<<<<< HEAD
 import List from '../ components/List';
-=======
 import SearchBox from '../ components/SearchBox';
->>>>>>> develop
 import apiKeys from '../assets/ApiKeys';
 const api = require("@what3words/api");
 
@@ -21,12 +18,9 @@ const SearchContainer = () => {
 
     const [flightsFound, setFlightsFound] = useState(null);
     const [selectedFlight, setFlight] = useState(null);
-<<<<<<< HEAD
     const [flights, setFlights] = useState(null);
     const [searchCoords, setSearchCoords] = useState(null);
-=======
     const [searchCoords, setSearchCoords] = useState(null); //TS 
->>>>>>> develop
     const [locationWords, setLocationWords] = useState(null);
 
 
@@ -95,9 +89,7 @@ const SearchContainer = () => {
         setFlight(selectedFlight)
     }
 
-<<<<<<< HEAD
     // handleSearch()
-=======
     const newSearch = (something) => {
         console.log("search is:", something)
 
@@ -127,7 +119,6 @@ const SearchContainer = () => {
         );
     }
     
->>>>>>> develop
 
     return (
     <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
