@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import SearchBox from '../ components/SearchBox';
 import apiKeys from '../assets/ApiKeys';
 const api = require("@what3words/api");
+
 
 
 
@@ -15,7 +17,7 @@ const SearchContainer = () => {
 
     const [flightsFound, setFlightsFound] = useState(null);
     const [selectedFlight, setFlight] = useState(null);
-    const [searchCoords, setSearchCoords] = useState(null);
+    const [searchCoords, setSearchCoords] = useState(null); //TS 
     const [locationWords, setLocationWords] = useState(null);
 
 
@@ -83,7 +85,11 @@ const SearchContainer = () => {
         setFlight(selectedFlight)
     }
 
-    // handleSearch()
+    const newSearch = (something) => {
+        console.log("search is:", something)
+
+        threeWordsToCoords(something)
+    }
     
     if (searchCoords)
     {
@@ -100,8 +106,12 @@ const SearchContainer = () => {
     }
     else
     {
-        // Render searchbox here
-        return (<h1>Search Now!</h1>);
+
+        return (
+            <div>
+                <SearchBox searchFlight={newSearch}></SearchBox>
+            </div>
+        );
     }
     
 
