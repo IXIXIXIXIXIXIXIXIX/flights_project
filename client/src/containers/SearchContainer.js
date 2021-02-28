@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import List from '../ components/List';
 import SearchBox from '../ components/SearchBox';
+import PointToArea from '../helpers/PointToArea';
 import apiKeys from '../assets/ApiKeys';
 const api = require("@what3words/api");
 
@@ -16,10 +17,12 @@ api.setOptions({ key: key });
 const SearchContainer = () => {
 
 
-    const [flightsFound, setFlightsFound] = useState(null);
-    const [selectedFlight, setFlight] = useState(null);
-    const [flights, setFlights] = useState(null);
+    // const [flightsFound, setFlightsFound] = useState(null);
+
+
     const [searchCoords, setSearchCoords] = useState(null);
+    const [flights, setFlights] = useState(null);
+    const [selectedFlight, setFlight] = useState(null);
     const [locationWords, setLocationWords] = useState(null);
 
 
@@ -71,51 +74,30 @@ const SearchContainer = () => {
         threeWordsToCoords(something)
     }
     
-    if (searchCoords)
+
+    if (selectedFlight)
     {
         return (
+            <Results selectedFlight={selectedFlight} />
+        );
+    }
 
-            // Render List here
-            <div>
-            <p>Latitude: {searchCoords.coordinates.lat}</p>
-            <p>Longitude: {searchCoords.coordinates.lng}</p>
-            <p>Nearest: {searchCoords.nearestPlace}</p>
-
-            </div>
-        )
+    else if (flights)
+    {
+        return (
+            <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
+        );
     }
     else
     {
-
         return (
-            <div>
                 <SearchBox searchFlight={newSearch}></SearchBox>
-            </div>
         );
     }
     
 
-    // return (
-    // <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
-    // );
 
-    if (searchCoords)
-    {
-        return (
-            <div>
-            <List flights={flights} onFlightClick={() => {handleFlightClick()}} />
-            <p>Latitude: {searchCoords.coordinates.lat}</p>
-            <p>Longitude: {searchCoords.coordinates.lng}</p>
-            <p>Nearest: {searchCoords.nearestPlace}</p>
 
-            </div>
-        );
-    }
-    else
-    {
-        // Render searchbox here
-        return (<h1>Search Now!</h1>);
-    }
 }
 
 export default SearchContainer;
