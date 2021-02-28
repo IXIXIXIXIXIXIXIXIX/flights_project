@@ -52,6 +52,8 @@ const SearchContainer = () => {
     {
         if (selectedFlight)
         {
+            console.log("Getting further data for:", selectedFlight);
+
             // Seconds * minutes * hours * days
             const secondsInPast = 60 * 60 * 24 * 10;
             const now = new Date();
@@ -59,8 +61,9 @@ const SearchContainer = () => {
             const end = Math.floor(now / 1000);
             const begin = end - secondsInPast;
 
-            console.log("Getting further data for:", selectedFlight)
-            const url = `https://opensky-network.org/api/flights/aircraft?icao24=${selectedFlight[0]}&begin=${begin}&end=${end}`
+
+            const url = `https://opensky-network.org/api/flights/aircraft?icao24=${selectedFlight[0]}&begin=${begin}&end=${end}`;
+            const authString = `${apiKeys.openSky.user}:${apiKeys.openSky.pass}`;
 
             fetch(url, {
                 method: 'GET',
@@ -69,7 +72,7 @@ const SearchContainer = () => {
                 agent: 'null',
                 headers: {
                     "Content-Type": "text/plain",
-                    'Authorization': 'Basic ' + btoa('IXIXIXIXIXIXIXIXIX:sgS27gjbVhJ3Y')
+                    'Authorization': 'Basic ' + btoa(authString)
             }
             })
 
