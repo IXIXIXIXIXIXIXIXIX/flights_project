@@ -15,13 +15,13 @@ const SearchContainer = () => {
 
 
     // CodeClan coordinates: "serve.sweep.kicked"
-    // const [flightsFound, setFlightsFound] = useState(null);
 
     const searchBoxSize = 20;
 
     const [searchCoords, setSearchCoords] = useState(null);
     const [flights, setFlights] = useState(null);
     const [selectedFlight, setFlight] = useState(null);
+    const [flightFurtherInfo, setFlightFurtherInfo] = useState(null);
     const [locationWords, setLocationWords] = useState(null);
 
 
@@ -29,25 +29,33 @@ const SearchContainer = () => {
        getFlights(); 
     }, [searchCoords]);
 
-///////////////////////////////////////////////////////////////////////////
+    useEffect(() => {
+        getFlightData();
+    },[selectedFlight]);
 
+
+
+    // Following two functions interface with what 3 words API
     function threeWordsToCoords(searchString) {
-        console.log("key used:", key);
-
+        // console.log("key used:", key);
         api.convertToCoordinates(searchString)
-        // .then(data => console.log("returned from 3W:", data));
         .then(data => setSearchCoords(data));
     };
 
-
     function coordsToThreeWords(coordObj) {
-        console.log("key used:", key);
-
+        // console.log("key used:", key);
         api.convertTo3wa(coordObj)
         .then(data => setLocationWords(data));
     };
-////////////////////////////////////////////////////////////////////////////
 
+    const getFlightData = () =>
+    {
+        if (selectedFlight)
+        {
+            console.log("Getting further data for:", selectedFlight)
+
+        }
+    };
 
     const getFlights = () => {
         console.log("Fetching API...");

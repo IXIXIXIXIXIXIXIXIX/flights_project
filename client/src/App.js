@@ -7,7 +7,7 @@ import './css/animation.css';
 import './css/results.css';
 import './css/search_page.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SearchContainer from './containers/SearchContainer';
 import NavBar from './components/NavBar';
