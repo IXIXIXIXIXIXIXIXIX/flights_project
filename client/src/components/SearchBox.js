@@ -22,7 +22,7 @@ const SearchBox = ({searchFlight}) => {
     <form onSubmit={handleSubmit} id="search_form">
       <div className="search_container">
         <label htmlFor="search">Search</label>
-        <input autofocus type="text" id="search_text" search="search" value={search} placeholder="word1. word2. word3" onChange={handleSearchChange}/>
+        <input autoFocus type="text" id="search_text" search="search" value={search} placeholder="word1. word2. word3" onChange={handleSearchChange}/>
       </div>
     </form>
     </>

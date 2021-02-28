@@ -1,14 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import List from '../ components/List';
-import SearchBox from '../ components/SearchBox';
+import List from '../components/List';
+import SearchBox from '../components/SearchBox'
+import Results from '../components/Results';
 import PointToArea from '../helpers/PointToArea';
 import apiKeys from '../assets/ApiKeys';
 const api = require("@what3words/api");
 
-
-
-
-            
 const key = apiKeys.threeWords.key;
 api.setOptions({ key: key });
 
@@ -17,8 +14,10 @@ api.setOptions({ key: key });
 const SearchContainer = () => {
 
 
+    // CodeClan coordinates: "serve.sweep.kicked"
     // const [flightsFound, setFlightsFound] = useState(null);
 
+    const searchBoxSize = 20;
 
     const [searchCoords, setSearchCoords] = useState(null);
     const [flights, setFlights] = useState(null);
@@ -26,12 +25,9 @@ const SearchContainer = () => {
     const [locationWords, setLocationWords] = useState(null);
 
 
-    // Currently useEffect is only used to stop infinite loops when testing 3w to coords function
-    // useEffect(() => {
-        // CodeClan coordinates
-        //threeWordsToCoords("serve.sweep.kicked");
-        
-    // }, []);
+    useEffect(() => {
+       getFlights(); 
+    }, [searchCoords]);
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -39,6 +35,7 @@ const SearchContainer = () => {
         console.log("key used:", key);
 
         api.convertToCoordinates(searchString)
+        // .then(data => console.log("returned from 3W:", data));
         .then(data => setSearchCoords(data));
     };
 
@@ -54,14 +51,28 @@ const SearchContainer = () => {
 
     const getFlights = () => {
         console.log("Fetching API...");
-        fetch("https://opensky-network.org/api/states/all?lamin=45.8389&lomin=5.9962&lamax=47.8229&lomax=10.5226")
-        .then(res => res.json())
-        .then(data => setFlights(data))
+        if (searchCoords)
+        {
+            console.log("coords point:", searchCoords);
+            console.log("from 3W lat", searchCoords.coordinates.lat);
+
+            const pointLat = searchCoords.coordinates.lat;
+            const pointLon = searchCoords.coordinates.lng;
+
+            const coordsBox = PointToArea(
+                {
+                lat: pointLat,
+                lon: pointLon
+                }, searchBoxSize);
+            
+            console.log("this is the box:",coordsBox);
+
+            fetch(`https://opensky-network.org/api/states/all?lamin=${coordsBox.minLat}&lomin=${coordsBox.minLon}&lamax=${coordsBox.maxLat}&lomax=${coordsBox.maxLon}`)
+            .then(res => res.json())
+            .then(data => setFlights(data))
+        }
     }
 
-    useEffect(() => {
-        getFlights()
-    }, [])
 
     const handleFlightClick = (selectedFlight) => {
         setFlight(selectedFlight)
@@ -69,9 +80,9 @@ const SearchContainer = () => {
 
     // handleSearch()
     const newSearch = (something) => {
-        console.log("search is:", something)
-
-        threeWordsToCoords(something)
+        console.log("search is:", something.search)
+        threeWordsToCoords(something.search);
+        getFlights();
     }
     
 
