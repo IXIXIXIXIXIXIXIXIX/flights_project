@@ -23,7 +23,13 @@
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
+    transition: transform .2s;
     /* text-align: center; */
+    cursor: pointer;
+}
+
+.list-box:hover {
+    transform: scale(1.2);
 }
 
 h2 {
