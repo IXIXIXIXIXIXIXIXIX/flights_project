@@ -1,5 +1,6 @@
 .search_container {
-    padding-top: 18%;
+    padding-top: 5%;
+    padding-bottom: 5%;
     display: flex;
     justify-content: center;
     font-size: 3rem;
@@ -8,8 +9,6 @@
 .search_container label {
     color: white;
     margin-right: 2%;
-
-
 }
 
 .search_container input {
@@ -31,6 +30,8 @@
 }
 
 .leaflet-container {
-    width: 100vw;
-    height: 100vh;
+    width: 50vw;
+    height: 50vh;
+    margin: auto;
+    
 }
