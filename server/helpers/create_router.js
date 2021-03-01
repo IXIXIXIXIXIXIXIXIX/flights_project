@@ -6,7 +6,7 @@ const createRouter = function (collection) {
 
   const router = express.Router();
 
-  // INDEX - Get all docs
+  // INDEX - Get all airports
   router.get('/', (req, res) => {
     collection.find().toArray()
     .then((docs) => {
@@ -20,7 +20,7 @@ const createRouter = function (collection) {
     });
   });
 
-  // SHOW - Get a single doc
+  // SHOW - Get a single airport BY ID
   router.get('/:id', (req, res) => {
     const id = req.params.id;
     collection.findOne({_id: ObjectID(id)})
@@ -31,9 +31,25 @@ const createRouter = function (collection) {
       console.error(err);
       res.status(500);
       res.json({status: 500, error: err});
-    });
-
+    })
   });
+
+
+  // SHOW - Get a single airport BY ICAO
+  router.get('/icao_code/:icao_code', (req, res) => {
+    const icao_code = req.params.icao_code;
+    console.log(icao_code);
+    collection.findOne({icao_code: icao_code})
+    .then((doc) => {
+      res.json(doc);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
+      res.json({status: 500, error: err});
+    })
+  });
+
 
   // CREATE - Create a new doc
   router.post('/', (req, res) => {

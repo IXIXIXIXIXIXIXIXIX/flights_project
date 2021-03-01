@@ -1,7 +1,7 @@
-use skyrabble;
+use airportdb;
 db.dropDatabase();
 
-db.XXXXXXXXX.insertMany([
+db.airport_data.insertMany([
 
 
 ]);
