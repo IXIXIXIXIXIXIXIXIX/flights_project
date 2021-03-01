@@ -20,6 +20,13 @@
     padding: 20px;
 }
 
+.position-box {
+
+  display: flex;
+  flex-direction: column;
+
+}
+
 .main-results-row {
   display: flex;
   flex-direction: row-reverse;
@@ -31,4 +38,11 @@
 .result-main-head {
 
   display: flex;
+}
+
+.results-skyrabble-heading {
+  width: 100%;
+  margin: 20px;
+  display: flex;
+  flex-direction: row-reverse;
 }
