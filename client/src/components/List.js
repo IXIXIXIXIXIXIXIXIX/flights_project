@@ -10,16 +10,16 @@ const List = ({flights, onFlightClick}) => {
 
         console.log("is there any state:", flights.states);
         const flightListDetails = found.map((flight) => {
-            return <p><span onClick={() => {onFlightClick(flight)}}>{flight[0]}</span><br></br>{flight[2]}</p>
+            return <h3 onClick={() => {onFlightClick(flight)}}>Flight: {flight[0]}<br></br>Flying to {flight[2]}</h3>
         })
 
-        const flightOriginCountry = found.map((flight) => {
-            return <p>{flight[2]}</p>
+        const flightFullDetails = found.map((flight) => {
+            return <div className="list-box transparent-box in-from-right" onClick={() => {onFlightClick(flight)}}><h3>Flight Number:</h3>{flight[0]}<h3>Flying to:</h3>{flight[2]}</div>
         })
 
         return (
-            <div>
-                {flightListDetails}
+            <div className="main-list-row">
+                {flightFullDetails}
             </div>
         )
     }
