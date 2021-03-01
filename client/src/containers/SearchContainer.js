@@ -77,7 +77,19 @@ const SearchContainer = () => {
             })
 
             .then(res => res.json())
-            .then(data => console.log("further data:", data));
+            .then((data) => {
+                console.log("further data:", data);
+
+                if (data.length > 0)
+                {
+                    const latest = data.reduce((currentLatest, flight) => currentLatest.firstSeen > flight.firstSeen ? currentLatest : flight);
+                    setFlightFurtherInfo(latest);
+                }
+                else
+                {
+                    setFlightFurtherInfo([]);
+                }
+            });
 
 
 
@@ -124,7 +136,7 @@ const SearchContainer = () => {
     if (selectedFlight)
     {
         return (
-            <Results selectedFlight={selectedFlight} />
+            <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo}/>
         );
     }
 
