@@ -15,7 +15,7 @@
 .result-box {
 
     height: 55vh;
-    width: 20vw;
+    width: 25vw;
 
     padding: 20px;
 }
@@ -26,6 +26,9 @@
   justify-content:  space-around; 
   align-items: center;
   height: 100%;
+}
 
- 
+.result-main-head {
+
+  display: flex;
 }
