@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Results = () => {
+const Results = ({selectedFlight, flightFurtherInfo}) => {
 
     return (
 

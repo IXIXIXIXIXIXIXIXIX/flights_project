@@ -146,7 +146,7 @@ const SearchContainer = () => {
         return (
             <>
             <h2>Choose your flight...</h2>
-            <List flights={flights} onFlightClick={(clickedFlight) => {handleFlightClick()}} />
+            <List flights={flights} onFlightClick={(clickedFlight) => {handleFlightClick(clickedFlight)}} />
             <MapContainer center={[searchCoords.coordinates.lat, searchCoords.coordinates.lng]} zoom={13} scrollWheelZoom={false}>
                     <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

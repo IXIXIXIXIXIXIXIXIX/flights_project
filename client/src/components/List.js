@@ -14,7 +14,7 @@ const List = ({flights, onFlightClick}) => {
         })
 
         const flightFullDetails = found.map((flight) => {
-            return <div className="list-box transparent-box in-from-right" onClick={() => {onFlightClick(flight)}}><h3>Flight Number:</h3>{flight[0]}<h3>Flying to:</h3>{flight[2]}</div>
+            return <div className="list-box transparent-box in-from-right"><h3 onClick={() => {onFlightClick(flight)}}>Flight Number:</h3>{flight[0]}<h3>Flying to:</h3>{flight[2]}</div>
         })
 
         return (
