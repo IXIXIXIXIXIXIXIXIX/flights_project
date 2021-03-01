@@ -147,7 +147,7 @@ const SearchContainer = () => {
         return (
             <>
             <h2>Choose your flight...</h2>
-            <List flights={flights} onFlightClick={(clickedFlight) => {handleFlightClick(clickedFlight)}} />
+            <List flights={flights} searchCoords={searchCoords} onFlightClick={(clickedFlight) => {handleFlightClick(clickedFlight)}} />
                 </>
         );
     }

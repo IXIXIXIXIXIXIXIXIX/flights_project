@@ -42,12 +42,6 @@ function App() {
             </main>
           </>
         </Router>
-
-        <div className="App">
-    </div>
-
-
-        
       </div>
     );
 }
