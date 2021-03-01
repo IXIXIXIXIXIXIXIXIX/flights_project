@@ -8,7 +8,7 @@ import './css/results.css';
 import './css/search_page.css';
 import './css/list.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SearchContainer from './containers/SearchContainer';
 import NavBar from './components/NavBar';
@@ -25,11 +25,6 @@ function App() {
     return ( 
       <div className="App" style={{ backgroundImage: `url("https://images.pexels.com/photos/164646/pexels-photo-164646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")` }}>
 
-
-
-
-        {/* <img src={bgImage}/> */}
-        
         <Router>
           <>
           <header className="header">

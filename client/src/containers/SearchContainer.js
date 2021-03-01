@@ -16,13 +16,13 @@ const SearchContainer = () => {
 
 
     // CodeClan coordinates: "serve.sweep.kicked"
-    // const [flightsFound, setFlightsFound] = useState(null);
 
     const searchBoxSize = 20;
 
     const [searchCoords, setSearchCoords] = useState(null);
     const [flights, setFlights] = useState(null);
     const [selectedFlight, setFlight] = useState(null);
+    const [flightFurtherInfo, setFlightFurtherInfo] = useState(null);
     const [locationWords, setLocationWords] = useState(null);
 
 
@@ -30,25 +30,72 @@ const SearchContainer = () => {
        getFlights(); 
     }, [searchCoords]);
 
-///////////////////////////////////////////////////////////////////////////
+    useEffect(() => {
+        getFlightData();
+    },[selectedFlight]);
 
+
+
+    // Following two functions interface with what 3 words API
     function threeWordsToCoords(searchString) {
-        console.log("key used:", key);
-
+        // console.log("key used:", key);
         api.convertToCoordinates(searchString)
-        // .then(data => console.log("returned from 3W:", data));
         .then(data => setSearchCoords(data));
     };
 
-
     function coordsToThreeWords(coordObj) {
-        console.log("key used:", key);
-
+        // console.log("key used:", key);
         api.convertTo3wa(coordObj)
         .then(data => setLocationWords(data));
     };
-////////////////////////////////////////////////////////////////////////////
 
+    const getFlightData = () =>
+    {
+        if (selectedFlight)
+        {
+            console.log("Getting further data for:", selectedFlight);
+
+            // Seconds * minutes * hours * days
+            const secondsInPast = 60 * 60 * 24 * 10;
+            const now = new Date();
+
+            const end = Math.floor(now / 1000);
+            const begin = end - secondsInPast;
+
+
+            const url = `https://opensky-network.org/api/flights/aircraft?icao24=${selectedFlight[0]}&begin=${begin}&end=${end}`;
+            const authString = `${apiKeys.openSky.user}:${apiKeys.openSky.pass}`;
+
+            fetch(url, {
+                method: 'GET',
+                credentials: 'same-origin',
+                redirect: 'follow',
+                agent: 'null',
+                headers: {
+                    "Content-Type": "text/plain",
+                    'Authorization': 'Basic ' + btoa(authString)
+            }
+            })
+
+            .then(res => res.json())
+            .then((data) => {
+                console.log("further data:", data);
+
+                if (data.length > 0)
+                {
+                    const latest = data.reduce((currentLatest, flight) => currentLatest.firstSeen > flight.firstSeen ? currentLatest : flight);
+                    setFlightFurtherInfo(latest);
+                }
+                else
+                {
+                    setFlightFurtherInfo([]);
+                }
+            });
+
+
+
+        }
+    };
 
     const getFlights = () => {
         console.log("Fetching API...");
@@ -90,7 +137,7 @@ const SearchContainer = () => {
     if (selectedFlight)
     {
         return (
-            <Results selectedFlight={selectedFlight} />
+            <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo}/>
         );
     }
 
