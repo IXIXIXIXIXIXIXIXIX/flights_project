@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.7.3",
     "@what3words/api": "^3.1.1",
     "axios": "^0.19.2",
+    "cors": "^2.8.5",
     "leaflet": "^1.7.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

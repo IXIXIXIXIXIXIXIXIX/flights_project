@@ -1,30 +1,15 @@
 import React from 'react';
 import FlightDetailsPanel from './FlightDetailPanel';
-import OriginPanel from './OriginPanel';
-import DestinationPanel from './DestinationPanel';
+import AirportPanel from './AirportPanel';
 
-const Results = ({selectedFlight, furtherFlightInfo, origin, destination}) => {
+const Results = ({selectedFlight, furtherFlightInfo, originAirport, destinationAirport}) => {
 
-    // const panels = [];
-
-    // if (origin)
-    // {
-    //     panels.push(<OriginPanel origin={origin} />);
-    // }
-
-    // panels.push(<FlightDetailsPanel selectedFlight={selectedFlight} />);
-
-    // if (destination)
-    // {
-    //     panels.push(<DestinationPanel destination={destination} />);
-    // }
-    
     return (
 
         <div className="main-results-row">
-            {/* <OriginPanel origin={origin} /> */}
+            <AirportPanel airport={destinationAirport} airportLabel="Destination Airport" animationDirection="in-from-right"/>
             <FlightDetailsPanel selectedFlight={selectedFlight} />
-            {/* <DestinationPanel destination={destination} /> */}
+            <AirportPanel airport={originAirport} airportLabel="Origin Airport" animationDirection="in-from-left"/>
         </div>
     );
 };
