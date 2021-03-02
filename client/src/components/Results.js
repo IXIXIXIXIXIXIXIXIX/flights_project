@@ -19,7 +19,13 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
 
     if (gameInProgress)
     {
+        return(
+
+            
+        <div className="main-results-row">
         <h1>THIS IS SKYRABBLE!!!</h1>
+        </div>
+        )
     }
     else
     {
@@ -27,7 +33,7 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
         if (player1Words && player2Words)
         {
             gameLink.push(
-                <div className="back-button in-from-top" onClick={handleBackClick}>
+                <div className="back-button in-from-top" onClick={handlePlayClick}>
                 <h3>PLAY SKYRABBLE!</h3>
                 </div>
             );
