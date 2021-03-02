@@ -23,7 +23,8 @@ const AirportPanel = ({airport, airportLabel, animationDirection}) => {
     else
     {
         return(
-                <div className="result-box origin-box transparent-box in-from-left">
+                <div className={`result-box origin-box transparent-box ${animationDirection}`}>
+
             <h4>{airportLabel}: Undisclosed</h4>
             </div>
         )
