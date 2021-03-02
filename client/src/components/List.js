@@ -70,6 +70,16 @@ const List = ({flights, searchCoords, onFlightClick}) => {
             </div>
         )
     }
+    if (!flights)
+    {
+        return (
+            <div className="instructions transparent-box in-from-left">
+                <h2>On the bright side, the sky is clear. On the other hand, there's nothing to see!</h2>
+                <p>Unfortunately we couldn't find any flights in your area.</p>
+                <p>Try searching again</p>
+          </div>
+        );
+    }
     else
     {
         return (
