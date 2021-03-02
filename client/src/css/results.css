@@ -1,6 +1,6 @@
 .result-box {
 
-    height: 85%;
+    height: 80%;
     width: 25vw;
 
     padding: 20px;
@@ -18,7 +18,7 @@
   flex-direction: row-reverse;
   justify-content:  space-around; 
   align-items: center;
-  height: 90%;
+  height: 95%;
 }
 
 .result-main-head {
@@ -26,23 +26,25 @@
   /* display: flex; */
   font-size: larger;
   margin: 3px;
-
+  font-size: 15px;
 }
 
 .result-secondary-head {
 
-  font-size: large;
+  font-size: larger;
+  font-size: 15px;
   margin: 3px;
 }
 
 
 .result-item {
   margin: 5px;
+  font-size: 15px;
 }
 .result-content {
   font-weight: bold;
   margin-left: 10px;
-
+  font-size: 15px;
 }
 
 .results-skyrabble-heading {
@@ -53,7 +55,6 @@
 }
 
 .results-map {
-  margin-bottom: 100px;
   display: flex;
   flex-direction: row;
   width: 270px;
@@ -63,7 +64,6 @@
 .results_map {
   height: 8px;
   margin-right: 10px;
-  margin-bottom: 100px;
 }
 
 .map_container {
@@ -71,12 +71,11 @@
 }
 
 #map {
-  height: 190px;
+  height: 160px;
 }
 .back-button {
-
   text-align: center;
-  margin: 30px 50px 10px 65px;
+  margin: 10px 50px 2px 65px;
   max-width: 180px;
   cursor: pointer;
 }
