@@ -20,6 +20,13 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
 
     if (gameInProgress)
     {
+        console.log("P1 words:", player1Words);
+        console.log("P2 words", player2Words);
+
+
+        const p1Words = player1Words.words.toUpperCase().split(".");
+        console.log("Just words:", p1Words);
+
         return(
 
         <>    
@@ -34,6 +41,14 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
                 </div>
             </div>
             <SkyRabblePlayerPanel selectedFlight={player1} isPlayer1={true} />
+        </div>
+        <div className="skyrabble-word-bar">
+            <div className="skyrabble-players-words">
+
+            </div>
+            <div className="skyrabble-players-words">
+                
+            </div>
         </div>
         </>
         )
