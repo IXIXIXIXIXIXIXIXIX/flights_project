@@ -27,9 +27,10 @@ const SearchContainer = () => {
     const [origin, setOrigin] = useState(null);
     const [destination, setDestination] = useState(null);
     const [locationWords, setLocationWords] = useState(null);
-    const [flightLat, setFlightLat] = useState(null);
-    const [flightLng, setFlightLng] = useState(null);
-
+    const [player1, setPlayer1] = useState(null);
+    const [player2, setPlayer2] = useState(null);
+    const [player1Words, setPlayer1Words] = useState(null);
+    const [player2Words, setPlayer2Words] = useState(null);
 
     useEffect(() => {
        getFlights(); 
@@ -41,13 +42,27 @@ const SearchContainer = () => {
 
     useEffect(() => {
         getAirportInfo();
-
     }, [flightFurtherInfo]);
 
+    useEffect(() => {
+
+    }, [player1])
+
+    useEffect(()=> {
+
+    }, [player2])
+
+    const handlePlayer1Choice = (flight) => {
+        console.log("Player 1", flight);
+        setPlayer1(flight);
+    }
+
+    const handlePlayer2Choice = (flight) => {
+        console.log("Player 2", flight);
+        setPlayer2(flight);
+    }
 
     const getAirportInfo = () => {
-
-
         // Check for declared origin and destination airports
         if (flightFurtherInfo)
         {
@@ -58,10 +73,9 @@ const SearchContainer = () => {
         {
             airportLookupDestination(flightFurtherInfo.estArrivalAirport);
         }
-
     };
 
-    // Following two functions interface with what 3 words API
+    // Following four functions interface with what 3 words API
     function threeWordsToCoords(searchString) {
         // console.log("key used:", key);
         api.convertToCoordinates(searchString)
@@ -73,6 +87,10 @@ const SearchContainer = () => {
         api.convertTo3wa(coordObj)
         .then(data => setLocationWords(data));
     };
+
+    // function getPlayer1Words() {
+
+    // };
 
     const airportLookupOrigin = (icaoCode) => {
         fetch(`http://localhost:5000/api/airport_data/icao_code/${icaoCode}`)
@@ -168,9 +186,16 @@ const SearchContainer = () => {
         console.log("search is:", something.search)
         threeWordsToCoords(something.search);
         getFlights();
-    }
+    };
 
 
+    // Resets backto list page from results - not full reset
+    const handleBackClick = () => {
+        setOrigin(null);
+        setDestination(null);
+        setFlightFurtherInfo(null);
+        setFlight(null);
+    };
     
     
 
@@ -182,7 +207,11 @@ const SearchContainer = () => {
         
 
         return (
-            <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo} originAirport={origin} destinationAirport={destination}/>
+            <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo} 
+                handleBackClick={handleBackClick} originAirport={origin} destinationAirport={destination}
+                handlePlayer1Choice={(flight)=>{handlePlayer1Choice(flight)}} 
+                handlePlayer2Choice={(flight)=>{handlePlayer2Choice(flight)}}   
+            />
         );
     }
 
