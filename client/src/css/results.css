@@ -14,7 +14,7 @@
 
 .result-box {
 
-    height: 55vh;
+    height: 85%;
     width: 25vw;
 
     padding: 20px;
@@ -32,7 +32,7 @@
   flex-direction: row-reverse;
   justify-content:  space-around; 
   align-items: center;
-  height: 100%;
+  height: 90%;
 }
 
 .result-main-head {
@@ -45,4 +45,26 @@
   margin: 20px;
   display: flex;
   flex-direction: row-reverse;
+}
+
+.results-map {
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: row;
+  width: 270px;
+  margin-top: 10px;
+}
+
+.results_map {
+  height: 8px;
+  margin-right: 10px;
+  margin-bottom: 100px;
+}
+
+.map_container {
+  height: 100px;
+}
+
+#map {
+  height: 190px;
 }
