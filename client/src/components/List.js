@@ -50,6 +50,7 @@ const List = ({flights, searchCoords, onFlightClick}) => {
             <div className="main-list-row scrollbar">
                 <h3>Flight list</h3>
                 {flightFullDetails}
+                
             </div>
             <div className="map_styling">
                 <h3> Map View</h3>
