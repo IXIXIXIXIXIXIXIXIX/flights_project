@@ -23,8 +23,25 @@
 
 .result-main-head {
 
-  display: flex;
+  /* display: flex; */
   font-size: larger;
+  margin: 3px;
+
+}
+
+.result-secondary-head {
+
+  font-size: large;
+  margin: 3px;
+}
+
+
+.result-item {
+  margin: 5px;
+}
+.result-content {
+  font-weight: bold;
+  margin-left: 10px;
 
 }
 
