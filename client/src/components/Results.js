@@ -1,9 +1,8 @@
 import React from 'react';
 import FlightDetailsPanel from './FlightDetailPanel';
-import OriginPanel from './OriginPanel';
-import DestinationPanel from './DestinationPanel';
+import AirportPanel from './AirportPanel';
 
-const Results = ({selectedFlight, furtherFlightInfo, originAirport, destination}) => {
+const Results = ({selectedFlight, furtherFlightInfo, originAirport, destinationAirport}) => {
 
     // const panels = [];
 
@@ -22,9 +21,9 @@ const Results = ({selectedFlight, furtherFlightInfo, originAirport, destination}
     return (
 
         <div className="main-results-row">
-            {/* <DestinationPanel destination={destination} /> */}
+            <AirportPanel airport={destinationAirport} airportLabel="Destination Airport" />
             <FlightDetailsPanel selectedFlight={selectedFlight} />
-            <OriginPanel originAirport={originAirport} />
+            <AirportPanel airport={originAirport} airportLabel="Origin Airport" />
         </div>
     );
 };
