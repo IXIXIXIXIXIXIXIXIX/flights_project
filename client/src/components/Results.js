@@ -1,6 +1,7 @@
 import React from 'react';
 import FlightDetailsPanel from './FlightDetailPanel';
 import AirportPanel from './AirportPanel';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const Results = ({selectedFlight, furtherFlightInfo, originAirport, destinationAirport}) => {
 

@@ -1,7 +1,7 @@
 import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const AirportPanel = ({airport, airportLabel, animationDirection}) => {
-
 
 
     if (airport)
