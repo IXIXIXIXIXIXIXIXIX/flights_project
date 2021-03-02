@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import List from '../components/List';
-import SearchBox from '../components/SearchBox'
+import SearchBox from '../components/SearchBox';
+import NavBar from '../components/NavBar';
 import Results from '../components/Results';
 import PointToArea from '../helpers/PointToArea';
 import apiKeys from '../assets/ApiKeys';
@@ -223,6 +224,10 @@ const SearchContainer = () => {
         
 
         return (
+            <>  
+            <header className="header">
+                <NavBar/>
+            </header>
             <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo} 
                 handleBackClick={handleBackClick} originAirport={origin} destinationAirport={destination}
                 handlePlayer1Choice={(flight)=>{handlePlayer1Choice(flight)}} 
@@ -230,6 +235,7 @@ const SearchContainer = () => {
                 player1={player1} player2={player2} player1Words={player1Words}
                 player2Words={player2Words}
             />
+            </>
         );
     }
 
@@ -237,14 +243,22 @@ const SearchContainer = () => {
     {
         return (
             <>
+            <header className="header">
+                <NavBar/>
+            </header>
             <List flights={flights} searchCoords={searchCoords} onFlightClick={(clickedFlight) => {handleFlightClick(clickedFlight)}} />
-                </>
+            </>
         );
     }
     else
     {
         return (
-                <SearchBox searchFlight={newSearch}></SearchBox>
+            <>
+            <header className="header">
+                <NavBar/>
+            </header>
+            <SearchBox searchFlight={newSearch}></SearchBox>
+            </>
         );
     }
     

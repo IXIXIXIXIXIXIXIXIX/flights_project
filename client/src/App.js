@@ -12,7 +12,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SearchContainer from './containers/SearchContainer';
-import NavBar from './components/NavBar';
 import NotFound from './components/NotFound';
 
 
@@ -28,9 +27,6 @@ function App() {
 
         <Router>
           <>
-          <header className="header">
-                <NavBar/>
-          </header>
 
               
             <main className="main-body">
