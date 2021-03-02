@@ -45,10 +45,13 @@ const SearchContainer = () => {
 
     }, [flightFurtherInfo]);
 
+    const handlePlayer1Choice = (flight) => {
+        console.log("Player 1", flight);
+        // setPlayer1(flight);
+    }
+
 
     const getAirportInfo = () => {
-
-
         // Check for declared origin and destination airports
         if (flightFurtherInfo)
         {
@@ -59,7 +62,6 @@ const SearchContainer = () => {
         {
             airportLookupDestination(flightFurtherInfo.estArrivalAirport);
         }
-
     };
 
     // Following two functions interface with what 3 words API
