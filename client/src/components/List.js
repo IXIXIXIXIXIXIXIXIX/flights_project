@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const List = ({flights, searchCoords, onFlightClick}) => {
 
+
     if (flights)
     {
         console.log("flights", flights);
@@ -15,7 +16,30 @@ const List = ({flights, searchCoords, onFlightClick}) => {
         })
 
         const flightFullDetails = found.map((flight, index) => {
-            return <div className="list-box transparent-box in-from-left" key={index} onClick={() => {onFlightClick(flight)}}><h4>Flight Number:</h4>{flight[0]}<h4>Flying to:</h4>{flight[2]}</div>
+
+            let flightNumber;
+
+            if (flight[1])
+            {
+                flightNumber = flight[1];
+            }
+            else
+            {
+                flightNumber = flight[0];
+            }
+
+            let labelName;
+
+            if (flight[1])
+            {
+                labelName = "Callsign: ";
+            }
+            else
+            {
+                labelName = "ICAO Transponder Code: ";
+            }
+
+            return <div className="list-box transparent-box in-from-left" key={index} onClick={() => {onFlightClick(flight)}}><h4>{labelName}</h4>{flightNumber}<h4>Aircraft Origin:</h4>{flight[2]}</div>
         })
 
         const markerNodes = found.map((flight) => {
@@ -34,7 +58,7 @@ const List = ({flights, searchCoords, onFlightClick}) => {
             return (
                     <Marker position={[flight[6], flight[5]]} key={flightName}>
                     <Popup onClick={() => {onFlightClick(flight)}}>
-                        You are looking at {flightName}. <br />
+                        Flight {flightName}
                     </Popup>
                     </Marker>
             )
@@ -55,7 +79,8 @@ const List = ({flights, searchCoords, onFlightClick}) => {
             <div className="map_styling">
                 <h3> Map View</h3>
                 <br></br>
-                <MapContainer center={[searchCoords.coordinates.lat, searchCoords.coordinates.lng]} zoom={10} scrollWheelZoom={false}>
+                <div className="list_map">
+                <MapContainer className="list-map" center={[searchCoords.coordinates.lat, searchCoords.coordinates.lng]} zoom={10} scrollWheelZoom={false}>
                     <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -67,6 +92,7 @@ const List = ({flights, searchCoords, onFlightClick}) => {
                     </Popup>
                     </Marker> */}
                 </MapContainer>
+                </div>
             </div>
             </div>
         )

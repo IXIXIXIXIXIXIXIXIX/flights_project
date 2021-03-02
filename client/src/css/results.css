@@ -1,20 +1,6 @@
-/* .origin-box {
-
-}
-
-.position-box {
-
-
-}
-
-.destination-box {
-
-
-} */
-
 .result-box {
 
-    height: 55vh;
+    height: 80%;
     width: 25vw;
 
     padding: 20px;
@@ -32,12 +18,33 @@
   flex-direction: row-reverse;
   justify-content:  space-around; 
   align-items: center;
-  height: 100%;
+  height: 95%;
 }
 
 .result-main-head {
 
-  display: flex;
+  /* display: flex; */
+  font-size: larger;
+  margin: 3px;
+  font-size: 15px;
+}
+
+.result-secondary-head {
+
+  font-size: larger;
+  font-size: 15px;
+  margin: 3px;
+}
+
+
+.result-item {
+  margin: 5px;
+  font-size: 15px;
+}
+.result-content {
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 15px;
 }
 
 .results-skyrabble-heading {
@@ -45,4 +52,30 @@
   margin: 20px;
   display: flex;
   flex-direction: row-reverse;
+}
+
+.results-map {
+  display: flex;
+  flex-direction: row;
+  width: 270px;
+  margin-top: 10px;
+}
+
+.results_map {
+  height: 8px;
+  margin-right: 10px;
+}
+
+.map_container {
+  height: 100px;
+}
+
+#map {
+  height: 160px;
+}
+.back-button {
+  text-align: center;
+  margin: 10px 50px 2px 65px;
+  max-width: 180px;
+  cursor: pointer;
 }
