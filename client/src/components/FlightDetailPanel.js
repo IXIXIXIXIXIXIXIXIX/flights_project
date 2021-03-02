@@ -52,8 +52,6 @@ const FlightDetailsPanel = ({selectedFlight}) => {
                 <div className="result-main-head">Callsign: <span className="result-content">{processedFlightInfo[1]}</span></div>
                 <div className="result-secondary-head">ICAO Transponder Code: <span className="result-content">{processedFlightInfo[0]}</span></div>
                 <div className="result-item">Aircraft Origin: <span className="result-content">{processedFlightInfo[2]}</span></div>
-                <div className="result-item">Flight Origin: <span className="result-content">{processedFlightInfo[2]}</span></div>
-                <div className="result-item">Flight Destination: <span className="result-content">{processedFlightInfo[2]}</span></div>
                 <div className="result-item">Location:</div>
                 <div className="result-item">Latitude: <span className="result-content">{processedFlightInfo[6]}</span></div>
                 <div className="result-item">Longitude: <span className="result-content"> {processedFlightInfo[5]}</span></div>

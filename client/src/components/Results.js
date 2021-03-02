@@ -3,7 +3,7 @@ import FlightDetailsPanel from './FlightDetailPanel';
 import OriginPanel from './OriginPanel';
 import DestinationPanel from './DestinationPanel';
 
-const Results = ({selectedFlight, furtherFlightInfo, origin, destination}) => {
+const Results = ({selectedFlight, furtherFlightInfo, originAirport, destination}) => {
 
     // const panels = [];
 
@@ -22,9 +22,9 @@ const Results = ({selectedFlight, furtherFlightInfo, origin, destination}) => {
     return (
 
         <div className="main-results-row">
-            {/* <OriginPanel origin={origin} /> */}
-            <FlightDetailsPanel selectedFlight={selectedFlight} />
             {/* <DestinationPanel destination={destination} /> */}
+            <FlightDetailsPanel selectedFlight={selectedFlight} />
+            <OriginPanel originAirport={originAirport} />
         </div>
     );
 };
