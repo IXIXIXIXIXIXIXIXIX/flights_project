@@ -235,6 +235,7 @@ const SearchContainer = () => {
             <header className="header">
                 <NavBar/>
             </header>
+            <main className="main-body">
             <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo} 
                 handleBackClick={handleBackClick} originAirport={origin} destinationAirport={destination}
                 handlePlayer1Choice={(flight)=>{handlePlayer1Choice(flight)}} 
@@ -242,6 +243,7 @@ const SearchContainer = () => {
                 player1={player1} player2={player2} player1Words={player1Words}
                 player2Words={player2Words}
             />
+            </main>
             </>
         );
     }
@@ -253,7 +255,9 @@ const SearchContainer = () => {
             <header className="header">
                 <NavBar/>
             </header>
+            <main className="main-body">
             <List flights={flights} searchCoords={searchCoords} onFlightClick={(clickedFlight) => {handleFlightClick(clickedFlight)}} />
+            </main>
             </>
         );
     }
@@ -264,7 +268,9 @@ const SearchContainer = () => {
             <header className="header">
                 <NavBar/>
             </header>
+            <main className="main-body">
             <SearchBox searchFlight={newSearch}></SearchBox>
+            </main>
             </>
         );
     }

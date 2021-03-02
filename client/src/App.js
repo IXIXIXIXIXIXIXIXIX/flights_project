@@ -27,9 +27,6 @@ function App() {
 
         <Router>
           <>
-
-              
-            <main className="main-body">
               <Switch>
                 <Route path="/search" component={SearchContainer} />
                 <Route exact path="/" render={() => <SearchContainer/>} />
@@ -37,7 +34,6 @@ function App() {
                 <Route component={NotFound} />
               </Switch>
                                           
-            </main>
           </>
         </Router>
 
