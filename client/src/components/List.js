@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const List = ({flights, searchCoords, onFlightClick}) => {
 
+
     if (flights)
     {
         console.log("flights", flights);
