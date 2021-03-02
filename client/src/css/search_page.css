@@ -1,5 +1,5 @@
 .search_container {
-    padding-top: 18%;
+    padding-top: 10%;
     display: flex;
     justify-content: center;
     font-size: 3rem;
@@ -8,6 +8,7 @@
 .search_container label {
     color: white;
     margin-right: 2%;
+    margin-left: 15%;
 
 
 }
@@ -25,7 +26,7 @@
 }
 
 .search_container ::placeholder {
-    color: rgb(128, 128, 128, 0.2);
+    color: rgba(219, 219, 219, 0.2);
     font-size: 2rem;
     /* font-style: italic; */
 }
@@ -35,3 +36,53 @@
     height: 100vh;
     background-color:rgba(255,0,0,0.0);
 }
+.main-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+  
+
+.instructions {
+    justify-content: center;
+    height: 200px;
+    width: 400px;
+    margin-top: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: transform .2s;
+    align-items: center;
+    position: relative;
+    margin-left: 25%;
+    /* text-align: center; */
+}
+
+h2 {
+    color: white;
+    margin-left: 30px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+    font-weight:bolder;
+  }
+
+  .symbol { 
+    margin-left: 3px;
+    margin-right: 6px;
+    width: 15px; 
+    padding: 5px;
+    justify-content: center;
+    height: 15px; 
+    background-color: rgb(255, 0, 0);
+    display: inline-block;
+    text-align: center;
+    /* vertical-align: middle; */
+    line-height: 15px; 
+    }  

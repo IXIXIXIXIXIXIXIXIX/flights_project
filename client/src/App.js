@@ -7,6 +7,7 @@ import './css/animation.css';
 import './css/results.css';
 import './css/search_page.css';
 import './css/list.css';
+import './css/SkyRabble.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
@@ -36,12 +37,16 @@ function App() {
               <Switch>
                 <Route path="/search" component={SearchContainer} />
                 <Route exact path="/" render={() => <SearchContainer/>} />
+                
                 <Route component={NotFound} />
               </Switch>
                                           
             </main>
           </>
         </Router>
+
+
+        
       </div>
     );
 }

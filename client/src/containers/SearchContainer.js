@@ -4,6 +4,8 @@ import SearchBox from '../components/SearchBox'
 import Results from '../components/Results';
 import PointToArea from '../helpers/PointToArea';
 import apiKeys from '../assets/ApiKeys';
+import TestConnection from '../components/TestConnection';
+
 const api = require("@what3words/api");
 
 const key = apiKeys.threeWords.key;
@@ -22,6 +24,8 @@ const SearchContainer = () => {
     const [flights, setFlights] = useState(null);
     const [selectedFlight, setFlight] = useState(null);
     const [flightFurtherInfo, setFlightFurtherInfo] = useState(null);
+    const [origin, setOrigin] = useState(null);
+    const [destination, setDestination] = useState(null);
     const [locationWords, setLocationWords] = useState(null);
     const [flightLat, setFlightLat] = useState(null);
     const [flightLng, setFlightLng] = useState(null);
@@ -35,7 +39,27 @@ const SearchContainer = () => {
         getFlightData();
     },[selectedFlight]);
 
+    useEffect(() => {
+        getAirportInfo();
 
+    }, [flightFurtherInfo]);
+
+
+    const getAirportInfo = () => {
+
+
+        // Check for declared origin and destination airports
+        if (flightFurtherInfo)
+        {
+            console.log("reaching the origin check")
+            airportLookupOrigin(flightFurtherInfo.estDepartureAirport);
+        }
+        if (flightFurtherInfo)
+        {
+            airportLookupDestination(flightFurtherInfo.estArrivalAirport);
+        }
+
+    };
 
     // Following two functions interface with what 3 words API
     function threeWordsToCoords(searchString) {
@@ -48,6 +72,19 @@ const SearchContainer = () => {
         // console.log("key used:", key);
         api.convertTo3wa(coordObj)
         .then(data => setLocationWords(data));
+    };
+
+    const airportLookupOrigin = (icaoCode) => {
+        fetch(`http://localhost:5000/api/airport_data/icao_code/${icaoCode}`)
+        .then(res => res.json())
+        .then(data => setOrigin(data));
+
+    };
+
+    const airportLookupDestination = (icaoCode) => {
+        fetch(`http://localhost:5000/api/airport_data/icao_code/${icaoCode}`)
+        .then(res => res.json())
+        .then(data => setDestination(data));
     };
 
     const getFlightData = () =>
@@ -63,7 +100,6 @@ const SearchContainer = () => {
             const end = Math.floor(now / 1000);
             const begin = end - secondsInPast;
 
-
             const url = `https://opensky-network.org/api/flights/aircraft?icao24=${selectedFlight[0]}&begin=${begin}&end=${end}`;
             const authString = `${apiKeys.openSky.user}:${apiKeys.openSky.pass}`;
 
@@ -77,7 +113,6 @@ const SearchContainer = () => {
                     'Authorization': 'Basic ' + btoa(authString)
             }
             })
-
             .then(res => res.json())
             .then((data) => {
                 console.log("further data:", data);
@@ -85,17 +120,18 @@ const SearchContainer = () => {
                 if (data.length > 0)
                 {
                     const latest = data.reduce((currentLatest, flight) => currentLatest.firstSeen > flight.firstSeen ? currentLatest : flight);
+                    console.log("latest:", latest);
                     setFlightFurtherInfo(latest);
                 }
-                else
-                {
-                    setFlightFurtherInfo([]);
-                }
+                // else
+                // {
+                //     setFlightFurtherInfo([]);
+                // }
             });
+        
 
-
-
-        }
+    }
+        
     };
 
     const getFlights = () => {
@@ -133,12 +169,20 @@ const SearchContainer = () => {
         threeWordsToCoords(something.search);
         getFlights();
     }
+
+
+    
     
 
     if (selectedFlight)
     {
+        console.log("detected origin:", origin);
+        console.log("detected destination", destination);
+
+        
+
         return (
-            <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo}/>
+            <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo} originAirport={origin} destinationAirport={destination}/>
         );
     }
 

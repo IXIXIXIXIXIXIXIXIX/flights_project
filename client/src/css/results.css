@@ -15,9 +15,16 @@
 .result-box {
 
     height: 55vh;
-    width: 20vw;
+    width: 25vw;
 
     padding: 20px;
+}
+
+.position-box {
+
+  display: flex;
+  flex-direction: column;
+
 }
 
 .main-results-row {
@@ -26,6 +33,16 @@
   justify-content:  space-around; 
   align-items: center;
   height: 100%;
+}
 
- 
+.result-main-head {
+
+  display: flex;
+}
+
+.results-skyrabble-heading {
+  width: 100%;
+  margin: 20px;
+  display: flex;
+  flex-direction: row-reverse;
 }
