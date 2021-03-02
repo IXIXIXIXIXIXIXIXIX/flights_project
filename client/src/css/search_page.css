@@ -57,9 +57,13 @@
     transition: transform .2s;
     align-items: center;
     position: relative;
-    margin-left: 25%;
+    /* margin-left: 25%; */
     /* text-align: center; */
 }
+
+/* .instructions:active{
+    transition: transform .2s;
+} */
 
 h2 {
     color: white;

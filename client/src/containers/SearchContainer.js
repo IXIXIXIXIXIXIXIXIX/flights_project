@@ -4,11 +4,18 @@ import SearchBox from '../components/SearchBox'
 import Results from '../components/Results';
 import PointToArea from '../helpers/PointToArea';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { Icon } from 'leaflet';
 import apiKeys from '../assets/ApiKeys';
 const api = require("@what3words/api");
 
 const key = apiKeys.threeWords.key;
 api.setOptions({ key: key });
+
+const plane = new Icon({
+    iconUrl: 'http://localhost:3000/images/skyrabble_3.png',
+    iconSize: [50, 50]
+
+});
 
 
 
@@ -152,7 +159,7 @@ const SearchContainer = () => {
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={[searchCoords.coordinates.lat, searchCoords.coordinates.lng]}>
+                    <Marker icon = {plane} position={[searchCoords.coordinates.lat, searchCoords.coordinates.lng]}>
                     <Popup>
                         A pretty CSS3 popup. <br /> Easily customizable.
                     </Popup>
