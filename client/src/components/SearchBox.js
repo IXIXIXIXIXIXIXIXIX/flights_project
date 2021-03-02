@@ -19,6 +19,9 @@ const SearchBox = ({searchFlight}) => {
 
   return (
     <>
+            <div className="main-logo">
+              <img src="http://localhost:3000/images/skyrabble_main.png"></img>
+            </div>
     <div className="instructions transparent-box in-from-left">
       <h2>How to search</h2>
       <ol>

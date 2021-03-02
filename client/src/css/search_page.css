@@ -85,4 +85,15 @@ a {
     text-align: center;
     /* vertical-align: middle; */
     line-height: 15px; 
-    }  
+    }
+
+.main-logo img {
+    height: 10rem;
+}
+
+.main-logo {
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+
+}
