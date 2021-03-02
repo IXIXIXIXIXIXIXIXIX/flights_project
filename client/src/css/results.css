@@ -46,3 +46,11 @@
   display: flex;
   flex-direction: row-reverse;
 }
+
+.back-button {
+
+  text-align: center;
+  margin: 30px 50px 10px 65px;
+  max-width: 180px;
+  cursor: pointer;
+}

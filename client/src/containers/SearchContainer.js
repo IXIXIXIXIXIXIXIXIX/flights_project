@@ -168,9 +168,16 @@ const SearchContainer = () => {
         console.log("search is:", something.search)
         threeWordsToCoords(something.search);
         getFlights();
-    }
+    };
 
 
+    // Resets backto list page from results - not full reset
+    const handleBackClick = () => {
+        setOrigin(null);
+        setDestination(null);
+        setFlightFurtherInfo(null);
+        setFlight(null);
+    };
     
     
 
@@ -182,7 +189,8 @@ const SearchContainer = () => {
         
 
         return (
-            <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo} originAirport={origin} destinationAirport={destination}/>
+            <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo} 
+                handleBackClick={handleBackClick} originAirport={origin} destinationAirport={destination}/>
         );
     }
 
