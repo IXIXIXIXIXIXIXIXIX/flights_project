@@ -3,6 +3,7 @@ const app = express();
 const parser = require('body-parser');
 const MongoClient = require("mongodb").MongoClient;
 const createRouter = require("./helpers/create_router.js");
+const createLetterRouter = require("./helpers/create_letter_router.js");
 const cors = require("cors");
 
 app.use(cors());
