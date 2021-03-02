@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const FlightDetailsPanel = ({selectedFlight, player1, player2}) => {
+const SkyRabblePlayerPanel = ({selectedFlight, isPlayer1}) => {
 
 
     const missing = "Undisclosed";
@@ -20,27 +20,7 @@ const FlightDetailsPanel = ({selectedFlight, player1, player2}) => {
     });
 
 
- // Check if the current flight is either p1 or p2
-    let isPlayer1 = false;
-    let isPlayer2 = false;
 
-    if (player1 && processedFlightInfo[0] === player1[0])
-    {
-        isPlayer1 = true;
-    }
-    else
-    {
-        isPlayer1 = false;
-    }
-
-    if (player2 && processedFlightInfo[0] === player2[0])
-    {
-        isPlayer2 = true;
-    }
-    else
-    {
-        isPlayer2 = false;
-    }
     // Convert Last contacted to human-readable
     let t = new Date(processedFlightInfo[4] * 1000);
     const lastContact = t.toLocaleString();
@@ -88,4 +68,4 @@ const FlightDetailsPanel = ({selectedFlight, player1, player2}) => {
     );
 };
 
-export default FlightDetailsPanel;
+export default SkyRabblePlayerPanel;

@@ -16,8 +16,12 @@
     color:green;
 }
 
+.skyrabble-logo-container {
+    display: flex;
+    justify-content: center;
+}
 .skyrabble-game-logo {
 
-    /* max-width: 500px; */
-    /* height: auto; */
+    max-width: 500px;
+    height: auto;
 }

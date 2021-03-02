@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import FlightDetailsPanel from './FlightDetailPanel';
 import AirportPanel from './AirportPanel';
+import SkyRabblePlayerPanel from './SkyRabblePlayerPanel';
 
 const Results = ({selectedFlight, originAirport, destinationAirport, handleBackClick, 
     handlePlayer1Choice, handlePlayer2Choice, player1, player2, player1Words, player2Words}) => {
@@ -22,15 +23,17 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
         return(
 
         <>    
-        <div className="main-logo in-from-top">
+        <div className="skyrabble-logo-container in-from-top">
         <img src="http://localhost:3000/images/skyrabble_main.png" className="skyrabble-game-logo"></img>
         </div>
         <div className="main-results-row">
+            <SkyRabblePlayerPanel selectedFlight={player2} isPlayer1={false} />
             <div className="skyrabble-centre-column">
                 <div className="skyrabble-contest-result">
 
                 </div>
             </div>
+            <SkyRabblePlayerPanel selectedFlight={player1} isPlayer1={true} />
         </div>
         </>
         )
