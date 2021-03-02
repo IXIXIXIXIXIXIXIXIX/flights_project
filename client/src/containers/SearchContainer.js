@@ -5,6 +5,8 @@ import Results from '../components/Results';
 import PointToArea from '../helpers/PointToArea';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import apiKeys from '../assets/ApiKeys';
+import TestConnection from '../components/TestConnection';
+
 const api = require("@what3words/api");
 
 const key = apiKeys.threeWords.key;
@@ -74,14 +76,14 @@ const SearchContainer = () => {
     const airportLookupOrigin = (icaoCode) => {
         fetch(`http://localhost:5000/api/airport_data/icao_code/${icaoCode}`)
         .then(res => res.json())
-        .then(data => setOrigin);
+        .then(data => setOrigin(data));
 
     };
 
     const airportLookupDestination = (icaoCode) => {
         fetch(`http://localhost:5000/api/airport_data/icao_code/${icaoCode}`)
         .then(res => res.json())
-        .then(data => setDestination);
+        .then(data => setDestination(data));
     };
 
     const getFlightData = () =>
@@ -168,8 +170,7 @@ const SearchContainer = () => {
     }
 
 
- 
-
+    
     
 
     if (selectedFlight)
@@ -180,7 +181,7 @@ const SearchContainer = () => {
         
 
         return (
-            <Results selectedFlight={selectedFlight} originAirport={origin} destinationAirport={destination}/>
+            <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo} originAirport={origin} destinationAirport={destination}/>
         );
     }
 
