@@ -1,17 +1,3 @@
-/* .origin-box {
-
-}
-
-.position-box {
-
-
-}
-
-.destination-box {
-
-
-} */
-
 .result-box {
 
     height: 55vh;
@@ -38,6 +24,8 @@
 .result-main-head {
 
   display: flex;
+  font-size: larger;
+
 }
 
 .results-skyrabble-heading {
