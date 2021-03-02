@@ -61,11 +61,19 @@ const SearchContainer = () => {
     const handlePlayer1Choice = (flight) => {
         console.log("Player 1", flight);
         setPlayer1(flight);
+        if (!flight)
+        {
+            setPlayer1Words(null);
+        }
     }
 
     const handlePlayer2Choice = (flight) => {
         console.log("Player 2", flight);
         setPlayer2(flight);
+        if (!flight)
+        {
+            setPlayer2Words(null);
+        }
     }
 
     const getAirportInfo = () => {

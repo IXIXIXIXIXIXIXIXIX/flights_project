@@ -1,13 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 
 const FlightDetailsPanel = ({selectedFlight, handlePlayer1Choice, handlePlayer2Choice, player1, player2}) => {
 
+
     const missing = "Undisclosed";
-
-   
-
-    
 
     const processedFlightInfo = selectedFlight.map((element) => {
 
