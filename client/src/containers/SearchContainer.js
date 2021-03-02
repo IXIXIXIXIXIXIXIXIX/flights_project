@@ -193,7 +193,9 @@ const SearchContainer = () => {
 
         return (
             <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo} 
-                handleBackClick={handleBackClick} originAirport={origin} destinationAirport={destination}/>
+                handleBackClick={handleBackClick} originAirport={origin} destinationAirport={destination}
+                handlePlayer1Choice={(flight)=>{handlePlayer1Choice(flight)}}    
+            />
         );
     }
 

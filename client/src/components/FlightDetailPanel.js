@@ -1,9 +1,11 @@
 import React from 'react';
 import PlayerButton from './PlayerButton';
 
-const FlightDetailsPanel = ({selectedFlight}) => {
+const FlightDetailsPanel = ({selectedFlight, handlePlayer1Choice, handlePlayer2Choice}) => {
 
     const missing = "Undisclosed";
+
+  
 
     const processedFlightInfo = selectedFlight.map((element) => {
 
@@ -47,7 +49,12 @@ const FlightDetailsPanel = ({selectedFlight}) => {
     return (
             <div className="result-box position-box transparent-box in-from-bottom">
                 <div className="results-skyrabble-heading">
-                    <div className="skyrabble-button-container"><PlayerButton playerNumber={1} /><PlayerButton playerNumber={2} /></div>
+                    <div className="skyrabble-button-container">
+                        <span className="player-button" onClick={()=>handlePlayer1Choice(selectedFlight)}>
+                            <i className="fas fa-plane"></i> 1</span>
+                        <span className="player-button" onClick={()=>handlePlayer2Choice(selectedFlight)}>
+                            <i className="fas fa-plane"></i> 2</span>
+                    </div>
                     </div>
                 <div className="result-main-head">Callsign: <span className="result-content">{processedFlightInfo[1]}</span></div>
                 <div className="result-secondary-head">ICAO Transponder Code: <span className="result-content">{processedFlightInfo[0]}</span></div>
