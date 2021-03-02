@@ -21,10 +21,18 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
     {
         return(
 
-            
-        <div className="main-results-row">
-        <h1>THIS IS SKYRABBLE!!!</h1>
+        <>    
+        <div className="main-logo in-from-top">
+        <img src="http://localhost:3000/images/skyrabble_main.png" className="skyrabble-game-logo"></img>
         </div>
+        <div className="main-results-row">
+            <div className="skyrabble-centre-column">
+                <div className="skyrabble-contest-result">
+
+                </div>
+            </div>
+        </div>
+        </>
         )
     }
     else
