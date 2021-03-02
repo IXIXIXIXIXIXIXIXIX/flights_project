@@ -3,13 +3,20 @@ import List from '../components/List';
 import SearchBox from '../components/SearchBox'
 import Results from '../components/Results';
 import PointToArea from '../helpers/PointToArea';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { Icon } from 'leaflet';
 import apiKeys from '../assets/ApiKeys';
-import TestConnection from '../components/TestConnection';
 
 const api = require("@what3words/api");
 
 const key = apiKeys.threeWords.key;
 api.setOptions({ key: key });
+
+const plane = new Icon({
+    iconUrl: 'http://localhost:3000/images/skyrabble_3.png',
+    iconSize: [50, 50]
+
+});
 
 
 
