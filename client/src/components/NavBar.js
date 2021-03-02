@@ -3,6 +3,10 @@ import {Link} from "react-router-dom";
 
 const NavBar = () => {
 
+    function refresh(){
+        window.location.reload("Refresh")
+    }
+
     return (
         <nav className="navbar-container">
 
@@ -12,7 +16,7 @@ const NavBar = () => {
                      <Link to="/search" className="navbar-link tooltip"><i className="fas fa-search"></i>
                             <span className="tooltiptext-left transparent-box">Search Flights</span>
                      </Link>
-                     <Link to="/" className="navbar-link tooltip"><i className="fas fa-home"></i>
+                     <Link to="/" className="navbar-link tooltip" onClick={() => {refresh()}}><i className="fas fa-home"></i>
                             <span className="tooltiptext-left transparent-box">Home</span>
                      </Link>
 

@@ -1,21 +1,24 @@
 import React from 'react';
+import FlightDetailsPanel from './FlightDetailPanel';
+import AirportPanel from './AirportPanel';
 
-const Results = ({selectedFlight, flightFurtherInfo}) => {
+const Results = ({selectedFlight, originAirport, destinationAirport, handleBackClick, handlePlayer1Choice, handlePlayer2Choice}) => {
 
     return (
 
-        <div className="main-results-row">
-
-            <div className="result-box destination-box transparent-box in-from-right">
-                <h4>Destination</h4>
-            </div>
-            <div className="result-box position-box transparent-box in-from-bottom">
-                <h4>Position</h4>
-            </div>
-            <div className="result-box origin-box transparent-box in-from-left">
-                <h4>Origin</h4>
-            </div>
+        <>
+        <div className="back-button transparent-box in-from-top" onClick={handleBackClick}>
+            <h3>Back to Results List</h3>
         </div>
+
+        <div className="main-results-row">
+            <AirportPanel airport={destinationAirport} airportLabel="Destination Airport" animationDirection="in-from-right"/>
+            <FlightDetailsPanel selectedFlight={selectedFlight} 
+                handlePlayer1Choice={(flight)=>{handlePlayer1Choice(flight)}}
+                handlePlayer2Choice={(flight)=>{handlePlayer2Choice(flight)}}/>
+            <AirportPanel airport={originAirport} airportLabel="Origin Airport" animationDirection="in-from-left"/>
+        </div>
+        </>
     );
 };
 
