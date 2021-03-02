@@ -27,9 +27,10 @@ const SearchContainer = () => {
     const [origin, setOrigin] = useState(null);
     const [destination, setDestination] = useState(null);
     const [locationWords, setLocationWords] = useState(null);
-    const [flightLat, setFlightLat] = useState(null);
-    const [flightLng, setFlightLng] = useState(null);
-
+    const [player1, setPlayer1] = useState(null);
+    const [player2, setPlayer2] = useState(null);
+    const [player1Words, setPlayer1Words] = useState(null);
+    const [player2Words, setPlayer2Words] = useState(null);
 
     useEffect(() => {
        getFlights(); 
