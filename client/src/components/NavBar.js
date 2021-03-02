@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavBar = () => {
+const NavBar = ({handleNextClick}) => {
 
     function refresh(){
         window.location.reload("Refresh")
@@ -12,7 +12,7 @@ const NavBar = () => {
                      <i className="fas fa-arrow-down"></i>
 
                  <nav className="navbar-right-cluster">
-                     <span className="navbar-link tooltip"><i className="fas fa-search"></i>
+                     <span className="navbar-link tooltip" onClick={handleNextClick}><i className="fas fa-search"></i>
                             <span className="tooltiptext-left transparent-box">New Search</span>
                      </span>
                      <span className="navbar-link tooltip" onClick={() => {refresh()}}><i className="fas fa-sync"></i>
