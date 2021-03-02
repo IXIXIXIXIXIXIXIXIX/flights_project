@@ -13,11 +13,10 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
         </div>
 
         <div className="main-results-row">
-            <AirportPanel airport={destinationAirport} airportLabel="Destination Airport" animationDirection="in-from-right"
-                player1={player1} player2={player2}/>
+            <AirportPanel airport={destinationAirport} airportLabel="Destination Airport" animationDirection="in-from-right"/>
             <FlightDetailsPanel selectedFlight={selectedFlight} 
                 handlePlayer1Choice={(flight)=>{handlePlayer1Choice(flight)}}
-                handlePlayer2Choice={(flight)=>{handlePlayer2Choice(flight)}}/>
+                handlePlayer2Choice={(flight)=>{handlePlayer2Choice(flight)}} player1={player1} player2={player2}/>
             <AirportPanel airport={originAirport} airportLabel="Origin Airport" animationDirection="in-from-left"/>
         </div>
         </>

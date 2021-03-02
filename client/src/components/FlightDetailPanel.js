@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FlightDetailsPanel = ({selectedFlight, handlePlayer1Choice, handlePlayer2Choice}) => {
+const FlightDetailsPanel = ({selectedFlight, handlePlayer1Choice, handlePlayer2Choice, player1, player2}) => {
 
     const missing = "Undisclosed";
 
