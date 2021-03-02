@@ -9,8 +9,8 @@ const AirportPanel = ({airport, airportLabel, animationDirection}) => {
         return (
 
                 <div className={`result-box origin-box transparent-box ${animationDirection}`}>
-                <div className="result-main-head">{airportLabel}: <span className="result-content">{airport.name}</span></div>
-                <div className="result-secondary-head">City<span className="result-content">{airport.city}</span></div>
+                <div className="result-main-head">{airportLabel}: <span className="result-content"> {airport.name}</span></div>
+                <div className="result-secondary-head">City: <span className="result-content">{airport.city}</span></div>
                 <div className="result-item">Country: <span className="result-content">{airport.country}</span></div>
                 <div className="result-item">Location:</div>
                 <div className="result-item">Latitude: <span className="result-content">{airport.lat}</span></div>
