@@ -221,7 +221,15 @@ const SearchContainer = () => {
         setFlight(null);
     };
     
-    
+    // Resets only search parameters - keeps player1 and player 2
+    const handleNextClick = () => {
+        setOrigin(null);
+        setDestination(null);
+        setFlightFurtherInfo(null);
+        setFlight(null);
+        setFlights(null);
+        setSearchCoords(null);
+    }
 
     if (selectedFlight)
     {
@@ -233,7 +241,7 @@ const SearchContainer = () => {
         return (
             <>  
             <header className="header">
-                <NavBar/>
+                <NavBar handleNextClick={handleNextClick}/>
             </header>
             <main className="main-body">
             <Results selectedFlight={selectedFlight} flightFurtherInfo={flightFurtherInfo} 
@@ -253,7 +261,7 @@ const SearchContainer = () => {
         return (
             <>
             <header className="header">
-                <NavBar/>
+                <NavBar handleNextClick={handleNextClick}/>
             </header>
             <main className="main-body">
             <List flights={flights} searchCoords={searchCoords} onFlightClick={(clickedFlight) => {handleFlightClick(clickedFlight)}} />
@@ -266,7 +274,7 @@ const SearchContainer = () => {
         return (
             <>
             <header className="header">
-                <NavBar/>
+                <NavBar handleNextClick={handleNextClick}/>
             </header>
             <main className="main-body">
             <SearchBox searchFlight={newSearch}></SearchBox>
