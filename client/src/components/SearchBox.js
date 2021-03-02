@@ -19,6 +19,16 @@ const SearchBox = ({searchFlight}) => {
 
   return (
     <>
+    <div className="instructions transparent-box in-from-left">
+      <h2>How to search</h2>
+      <ol>
+        <li>Head to    <div className="symbol"><a target="_blank" href="https://what3words.com/">///</a></div><a target="_blank" href="https://what3words.com/">what3words</a>.</li>
+        <li>Find the 3 words for a location of your choice.</li>
+        <li>Type them into the search box below using full stops in between.</li>
+        <li>A list of flights in your location will appear.</li>
+        <li>Click on the flight for more details.</li>
+      </ol>
+    </div>
     <form onSubmit={handleSubmit} id="search_form">
       <div className="search_container">
         <label htmlFor="search">Search</label>
