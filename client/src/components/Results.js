@@ -2,7 +2,7 @@ import React from 'react';
 import FlightDetailsPanel from './FlightDetailPanel';
 import AirportPanel from './AirportPanel';
 
-const Results = ({selectedFlight, originAirport, destinationAirport, handleBackClick, handlePlayer1Choice}) => {
+const Results = ({selectedFlight, originAirport, destinationAirport, handleBackClick, handlePlayer1Choice, handlePlayer2Choice}) => {
 
     return (
 
@@ -13,7 +13,9 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
 
         <div className="main-results-row">
             <AirportPanel airport={destinationAirport} airportLabel="Destination Airport" animationDirection="in-from-right"/>
-            <FlightDetailsPanel selectedFlight={selectedFlight} handlePlayer1Choice={(flight)=>{handlePlayer1Choice(flight)}}/>
+            <FlightDetailsPanel selectedFlight={selectedFlight} 
+                handlePlayer1Choice={(flight)=>{handlePlayer1Choice(flight)}}
+                handlePlayer2Choice={(flight)=>{handlePlayer2Choice(flight)}}/>
             <AirportPanel airport={originAirport} airportLabel="Origin Airport" animationDirection="in-from-left"/>
         </div>
         </>

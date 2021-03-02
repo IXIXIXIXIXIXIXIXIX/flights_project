@@ -1,11 +1,8 @@
 import React from 'react';
-import PlayerButton from './PlayerButton';
 
 const FlightDetailsPanel = ({selectedFlight, handlePlayer1Choice, handlePlayer2Choice}) => {
 
     const missing = "Undisclosed";
-
-  
 
     const processedFlightInfo = selectedFlight.map((element) => {
 
