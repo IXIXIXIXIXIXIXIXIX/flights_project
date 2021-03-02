@@ -14,10 +14,10 @@ const NavBar = () => {
 
                  <nav className="navbar-right-cluster">
                      <Link to="/search" className="navbar-link tooltip"><i className="fas fa-search"></i>
-                            <span className="tooltiptext-left transparent-box">Search Flights</span>
+                            <span className="tooltiptext-left transparent-box">New Search</span>
                      </Link>
-                     <Link to="/" className="navbar-link tooltip" onClick={() => {refresh()}}><i className="fas fa-home"></i>
-                            <span className="tooltiptext-left transparent-box">Home</span>
+                     <Link to="/" className="navbar-link tooltip" onClick={() => {refresh()}}><i className="fas fa-sync"></i>
+                            <span className="tooltiptext-left transparent-box">Reset All</span>
                      </Link>
 
                   </nav>

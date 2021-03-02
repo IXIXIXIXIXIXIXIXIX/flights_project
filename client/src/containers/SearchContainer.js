@@ -45,11 +45,17 @@ const SearchContainer = () => {
     }, [flightFurtherInfo]);
 
     useEffect(() => {
-
+        if (player1)
+        {
+        getPlayer1Words()
+        }
     }, [player1])
 
     useEffect(()=> {
-
+        if (player2)
+        {
+        getPlayer2Words()
+        }
     }, [player2])
 
     const handlePlayer1Choice = (flight) => {
@@ -88,9 +94,15 @@ const SearchContainer = () => {
         .then(data => setLocationWords(data));
     };
 
-    // function getPlayer1Words() {
+    function getPlayer1Words() {
+        api.convertTo3wa({lat: player1[6], lng: player1[5]})
+        .then((data) => {setPlayer1Words(data)})
+    };
 
-    // };
+    function getPlayer2Words() {
+        api.convertTo3wa({lat: player2[6], lng: player2[5]})
+        .then((data) => {setPlayer2Words(data)})
+    };
 
     const airportLookupOrigin = (icaoCode) => {
         fetch(`http://localhost:5000/api/airport_data/icao_code/${icaoCode}`)
@@ -141,10 +153,6 @@ const SearchContainer = () => {
                     console.log("latest:", latest);
                     setFlightFurtherInfo(latest);
                 }
-                // else
-                // {
-                //     setFlightFurtherInfo([]);
-                // }
             });
         
 
@@ -211,6 +219,8 @@ const SearchContainer = () => {
                 handleBackClick={handleBackClick} originAirport={origin} destinationAirport={destination}
                 handlePlayer1Choice={(flight)=>{handlePlayer1Choice(flight)}} 
                 handlePlayer2Choice={(flight)=>{handlePlayer2Choice(flight)}}   
+                player1={player1} player2={player2} player1Words={player1Words}
+                player2Words={player2Words}
             />
         );
     }
