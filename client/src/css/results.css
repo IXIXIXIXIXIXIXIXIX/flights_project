@@ -59,3 +59,8 @@
   max-width: 180px;
   cursor: pointer;
 }
+
+.results-controls {
+  display: flex;
+  justify-content: left;
+}

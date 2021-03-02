@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+
 
 const FlightDetailsPanel = ({selectedFlight, handlePlayer1Choice, handlePlayer2Choice, player1, player2}) => {
 
     const missing = "Undisclosed";
+
+   
+
+    
 
     const processedFlightInfo = selectedFlight.map((element) => {
 
@@ -17,6 +22,28 @@ const FlightDetailsPanel = ({selectedFlight, handlePlayer1Choice, handlePlayer2C
 
     });
 
+
+ // Check if the current flight is either p1 or p2
+    let isPlayer1 = false;
+    let isPlayer2 = false;
+
+    if (player1 && processedFlightInfo[0] === player1[0])
+    {
+        isPlayer1 = true;
+    }
+    else
+    {
+        isPlayer1 = false;
+    }
+
+    if (player2 && processedFlightInfo[0] === player2[0])
+    {
+        isPlayer2 = true;
+    }
+    else
+    {
+        isPlayer2 = false;
+    }
     // Convert Last contacted to human-readable
     let t = new Date(processedFlightInfo[4] * 1000);
     const lastContact = t.toLocaleString();
@@ -47,10 +74,10 @@ const FlightDetailsPanel = ({selectedFlight, handlePlayer1Choice, handlePlayer2C
             <div className="result-box position-box transparent-box in-from-bottom">
                 <div className="results-skyrabble-heading">
                     <div className="skyrabble-button-container">
-                        <span className={processedFlightInfo[0] === player1[0] ? "player-button skyrabble-button-active" : "player-button"} 
+                        <span className={isPlayer1 ? "player-button skyrabble-button-active" : "player-button"} 
                         onClick={()=>handlePlayer1Choice(selectedFlight)}>
                             <i className="fas fa-plane"></i> 1</span>
-                        <span className={processedFlightInfo[0] === player2[0] ? "player-button skyrabble-button-active" : "player-button"} 
+                        <span className={isPlayer2 ? "player-button skyrabble-button-active" : "player-button"} 
                         onClick={()=>handlePlayer2Choice(selectedFlight)}>
                             <i className="fas fa-plane"></i> 2</span>
                     </div>
