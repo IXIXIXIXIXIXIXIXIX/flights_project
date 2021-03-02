@@ -7,6 +7,15 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
     handlePlayer1Choice, handlePlayer2Choice, player1, player2, player1Words, player2Words}) => {
 
     const [gameInProgress, setGameInProgress] = useState(false)
+    const [p1Tiles, setP1Tiles] = useState(null);
+    const [p2Tiles, setP2Tiles] = useState(null);
+    const [currentTile, setCurrentTile] = useState(null);
+
+    const getTile = (letter) => {
+        fetch(`http://localhost:5000/api/skyrabble/letter/${letter}`)
+        .then(res => res.json())
+        .then(data => setCurrentTile(data))
+    }
 
     const handlePlayClick = () => {
         setGameInProgress(true);
@@ -25,6 +34,25 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
 
 
         const p1Words = player1Words.words.toUpperCase().split(".");
+
+         let p1Deal = [];
+
+         for(let wd = 0; wd < 3; ++wd)
+         {
+             let currentWord = [];
+             for(let lt = 0; lt < p1Words[0].length; ++lt)
+             {
+                 getTile(p1Words[wd][lt])
+                 .then(currentWord.push(currentTile))
+             }
+
+             p1Deal.push(currentWord);
+         }
+         console.log("mess of tiles", p1Deal);
+
+        
+;
+
         console.log("Just words:", p1Words);
 
         return(

@@ -25,3 +25,12 @@
     max-width: 500px;
     height: auto;
 }
+
+.letter-tile {
+
+    font-family: 'News Cycle', sans-serif;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+
+}

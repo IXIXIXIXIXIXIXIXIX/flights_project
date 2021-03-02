@@ -49,6 +49,28 @@ const createLetterRouter = function (collection) {
   });
 
 
+  // // SHOW - Get an array of tiles
+  // router.get('/word/:word', (req, res) => {
+  //   const preWord = req.params.word;
+  //   const word = preWord.split("");
+  //   console.log("Requested score for:", word);
+
+  //   let returnArray = []
+  //   for(let i=0; i < word.length; ++i)
+  //   {
+  //     collection.find({letter: word[i]})
+  //     .then((doc) => {
+  //       returnArray.push(doc)
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       res.status(500);
+  //       res.json({status: 500, error: err});
+  //     })
+  //   }
+  //     res.json(returnArray);
+  // });
+
 
 
 
