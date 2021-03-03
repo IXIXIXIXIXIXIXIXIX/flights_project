@@ -1,4 +1,4 @@
-const letters = {
+const Letters = {
     "A": 1,
     "B": 3,
     "C": 3,
@@ -27,4 +27,4 @@ const letters = {
     "Z": 10
 };
 
-export default letters;
+export default Letters;

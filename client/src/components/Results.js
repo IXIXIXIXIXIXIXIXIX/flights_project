@@ -2,20 +2,15 @@ import React, {useState, useEffect} from 'react';
 import FlightDetailsPanel from './FlightDetailPanel';
 import AirportPanel from './AirportPanel';
 import SkyRabblePlayerPanel from './SkyRabblePlayerPanel';
+import Letters from '../assets/Letters';
+import LetterTile from './LetterTile';
 
 const Results = ({selectedFlight, originAirport, destinationAirport, handleBackClick, 
     handlePlayer1Choice, handlePlayer2Choice, player1, player2, player1Words, player2Words}) => {
 
     const [gameInProgress, setGameInProgress] = useState(false)
-    const [p1Tiles, setP1Tiles] = useState(null);
-    const [p2Tiles, setP2Tiles] = useState(null);
-    const [currentTile, setCurrentTile] = useState(null);
 
-    const getTile = (letter) => {
-        fetch(`http://localhost:5000/api/skyrabble/letter/${letter}`)
-        .then(res => res.json())
-        .then(data => setCurrentTile(data))
-    }
+    
 
     const handlePlayClick = () => {
         setGameInProgress(true);
@@ -34,26 +29,37 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
 
 
         const p1Words = player1Words.words.toUpperCase().split(".");
+        let p1Score = 0;
+        const p1WordTiles = [];
 
-         let p1Deal = [];
+        for (let word = 0; word < 3; ++word)
+        {
+            const currentWord = p1Words[word].split("").map((currentLetter, index) => {
 
-         for(let wd = 0; wd < 3; ++wd)
-         {
-             let currentWord = [];
-             for(let lt = 0; lt < p1Words[0].length; ++lt)
-             {
-                 getTile(p1Words[wd][lt])
-                 .then(currentWord.push(currentTile))
-             }
+                const letterValue = Letters[currentLetter];
+                p1Score += letterValue;
+                return (<LetterTile letter={currentLetter} value={letterValue} key={index}/>);
+            });
+            // let currentWord = []
+            // for(let currentLetter = 0; currentLetter < p1Words[word].length; ++currentLetter)
+            // {
+            //     const letterValue = Letters[p1Words[word][currentLetter]];
+            //     const actualLetter = p1Words[word][currentLetter];
+            //     p1Score += letterValue;
+            //     console.log("letter value",letterValue)
+            //     console.log("Actual Letter", actualLetter)
+            //     currentWord.push(<LetterTile letter={actualLetter} value={letterValue} key={currentLetter}/>);
+            // }
+            p1WordTiles.push(<div className="skyrabble-single-word">{currentWord}</div>);
 
-             p1Deal.push(currentWord);
-         }
-         console.log("mess of tiles", p1Deal);
+        }
+        console.log("score", p1Score);
+        console.log("Just words:", p1Words);
+        console.log("tiles and tiles", p1WordTiles);
 
         
-;
+  
 
-        console.log("Just words:", p1Words);
 
         return(
 
@@ -72,10 +78,10 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
         </div>
         <div className="skyrabble-word-bar">
             <div className="skyrabble-players-words">
-
+                {p1WordTiles}
             </div>
             <div className="skyrabble-players-words">
-                
+      
             </div>
         </div>
         </>

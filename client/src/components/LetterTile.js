@@ -1,30 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-const LetterTile = (letter) => {
-
-    const [letterObject, setLetterObject] = useState(null);
-
-    fetch(`http://localhost:5000/api/skyrabble/letter/${letter}`)
-    .then(res => res.json())
-    .then(data => setLetterObject(data));
-
-
-    if (letterObject)
-    {
-
+const LetterTile = ({letter, value}) => {
         return (
             <div className="letter-tile">
-
-
+                <div classname="main-letter">
+                    {letter}
+                </div>
+                <div className="letter-value">
+                    {value}
+                </div>
             </div>
         )
-    }
-    else
-    {
-        return (<div></div>);
-    }
-
-
 };
 
 export default LetterTile;
