@@ -24,6 +24,7 @@
 
     max-width: 500px;
     height: auto;
+    margin-top: 20px;
 }
 
 .skyrabble-word-bar {
@@ -46,7 +47,7 @@
 .skyrabble-single-word {
     display: flex;
     flex-direction: row;
-    margin: 10px;
+    margin: 5px;
 }
 
 .main-letter {
@@ -61,10 +62,13 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: right;
+    padding-right: 8px;
+
 }
 
 .letter-value {
-    font-size: small;
+    font-size: 8px;
+    padding: 0;
 }
 .letter-tile {
 
@@ -76,10 +80,22 @@
     background-color: palegoldenrod;
     border-radius: 5px;
     font-family: 'News Cycle', sans-serif;
-    height: 45px;
-    width: 45px;
-    margin: 3px;
-    padding: 4px;
+    height: 43px;
+    width: 43px;
+    margin-top: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+    margin-bottom: 10px;
+    /* padding: 4px; */
+}
 
+#letters {
+    margin-top: 8px;
+    font-size: 14px;
+    /* font-weight: bold; */
+}
 
+#number {
+    /* padding-bottom: 10%; */
+    margin-bottom: 10px;
 }

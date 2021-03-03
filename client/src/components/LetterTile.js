@@ -4,11 +4,11 @@ const LetterTile = ({letter, value}) => {
         return (
             <div className="letter-tile">
                 <div classname="main-letter">
-                    {letter}
+                    <div id="letters">{letter}</div>
                 </div>
                 <div className="letter-bottom-row">
                 <div className="letter-value">
-                    {value}
+                    <div id="number">{value}</div>
                 </div>
                 </div>
             </div>

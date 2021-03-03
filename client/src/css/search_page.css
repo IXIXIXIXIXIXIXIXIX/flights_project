@@ -106,3 +106,24 @@ a {
     padding-top: 5%;
 
 }
+
+.error {
+    justify-content: center;
+    height: 200px;
+    width: 400px;
+    /* margin-top: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px; */
+    margin-top: 60px;
+    margin-left: 27%;
+    padding: 8%;
+    transition: transform .2s;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    /* margin-left: 25%; */
+    /* text-align: center; */
+}

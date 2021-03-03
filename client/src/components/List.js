@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const List = ({flights, searchCoords, onFlightClick}) => {
 
-    // if (flights=[])
     // return (
     //     <div className="instructions transparent-box in-from-left">
     //             <h2>On the bright side, the sky is clear. On the other hand, there's nothing to see!</h2>
@@ -13,7 +12,7 @@ const List = ({flights, searchCoords, onFlightClick}) => {
     // )
 
 
-    if (flights)
+    if (flights.states != null)
     {
         console.log("flights", flights);
 
@@ -110,7 +109,13 @@ const List = ({flights, searchCoords, onFlightClick}) => {
     else
     {
         return (
-            <h2>loading...</h2>
+        <div className="error transparent-box in-from-left">
+                <h2>On the bright side, the sky is clear.</h2>
+                <h2>On the other hand, there's nothing to see!</h2>
+                <br></br>
+                <p>Unfortunately we couldn't find any flights in your area.</p>
+                <p>Try searching again</p>
+          </div>
         );
     }
 }
