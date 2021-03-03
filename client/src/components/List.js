@@ -3,6 +3,15 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const List = ({flights, searchCoords, onFlightClick}) => {
 
+    // if (flights=[])
+    // return (
+    //     <div className="instructions transparent-box in-from-left">
+    //             <h2>On the bright side, the sky is clear. On the other hand, there's nothing to see!</h2>
+    //             <p>Unfortunately we couldn't find any flights in your area.</p>
+    //             <p>Try searching again</p>
+    //       </div>
+    // )
+
 
     if (flights)
     {
@@ -14,6 +23,7 @@ const List = ({flights, searchCoords, onFlightClick}) => {
         const flightListDetails = found.map((flight) => {
             return <h3 onClick={() => {onFlightClick(flight)}}>Flight: {flight[0]}<br></br>Flying to {flight[2]}</h3>
         })
+
 
         const flightFullDetails = found.map((flight, index) => {
 
@@ -96,16 +106,6 @@ const List = ({flights, searchCoords, onFlightClick}) => {
             </div>
             </div>
         )
-    }
-    if (!flights)
-    {
-        return (
-            <div className="instructions transparent-box in-from-left">
-                <h2>On the bright side, the sky is clear. On the other hand, there's nothing to see!</h2>
-                <p>Unfortunately we couldn't find any flights in your area.</p>
-                <p>Try searching again</p>
-          </div>
-        );
     }
     else
     {
