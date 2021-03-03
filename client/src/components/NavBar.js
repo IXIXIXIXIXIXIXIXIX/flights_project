@@ -9,7 +9,6 @@ const NavBar = ({handleNextClick}) => {
     return (
         <nav className="navbar-container">
 
-                     <i className="fas fa-arrow-down"></i>
 
                  <nav className="navbar-right-cluster">
                      <span className="navbar-link tooltip" onClick={handleNextClick}><i className="fas fa-search"></i>

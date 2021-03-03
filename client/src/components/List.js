@@ -78,31 +78,41 @@ const List = ({flights, searchCoords, onFlightClick}) => {
         // })
 
 
-        return (
-            <div className="list_page">
-            <div className="main-list-row scrollbar">
-                <h3>Flight list</h3>
-                {flightFullDetails}
-                
-            </div>
-            <div className="map_styling">
-                <h3> Map View</h3>
-                <br></br>
-                <div className="list_map">
-                <MapContainer className="list-map" center={[searchCoords.coordinates.lat, searchCoords.coordinates.lng]} zoom={10} scrollWheelZoom={false}>
-                    <TileLayer
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    {markerNodes}
-                    {/* <Marker position={[51.5074, 0.1278]}>
-                    <Popup>
-                        Flight One. <br />
-                    </Popup>
-                    </Marker> */}
-                </MapContainer>
+            return (
+                <div className="list_page">
+                <div className="main-list-row scrollbar">
+                    <h3>Flight list</h3>
+                    {flightFullDetails}
+                    
                 </div>
-            </div>
+                <div className="map_styling">
+                    <h3> Map View</h3>
+                    <br></br>
+                    <div className="list_map">
+                    <MapContainer className="list-map" center={[searchCoords.coordinates.lat, searchCoords.coordinates.lng]} zoom={10} scrollWheelZoom={false}>
+                        <TileLayer
+                        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        {markerNodes}
+                        {/* <Marker position={[51.5074, 0.1278]}>
+                        <Popup>
+                            Flight One. <br />
+                        </Popup>
+                        </Marker> */}
+                    </MapContainer>
+                    </div>
+                </div>
+                </div>
+            )
+        }
+        if (!flights)
+        {
+            return (
+                <div className="instructions transparent-box in-from-left">
+                    <h2>On the bright side, the sky is clear. On the other hand, there's nothing to see!</h2>
+                    <p>Unfortunately we couldn't find any flights in your area.</p>
+                    <p>Try searching again</p>
             </div>
         )
     }
