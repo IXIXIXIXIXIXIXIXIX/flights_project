@@ -57,7 +57,7 @@
 .results-map {
   display: flex;
   flex-direction: row;
-  width: 270px;
+  width: 390px;
   margin-top: 10px;
 }
 
@@ -71,7 +71,8 @@
 }
 
 #map {
-  height: 160px;
+  height: 330px;
+  margin-top: 20px;
 }
 .back-button {
   text-align: center;
