@@ -1,5 +1,12 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Icon } from 'leaflet';
+
+const plane = new Icon({
+    iconUrl: 'http://localhost:3000/images/skyrabble_3.png',
+    iconSize: [50, 50]
+
+});
 
 const List = ({flights, searchCoords, onFlightClick}) => {
 
@@ -33,7 +40,7 @@ const List = ({flights, searchCoords, onFlightClick}) => {
             }
 
             return (
-                    <Marker position={[flight[6], flight[5]]} key={flightName}>
+                    <Marker icon={plane} position={[flight[6], flight[5]]} key={flightName}>
                     <Popup onClick={() => {onFlightClick(flight)}}>
                         You are looking at {flightName}. <br />
                     </Popup>
