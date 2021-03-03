@@ -22,15 +22,18 @@ const SearchBox = ({searchFlight}) => {
             <div className="main-logo in-from-top">
               <img src="http://localhost:3000/images/skyrabble_main.png"></img>
             </div>
-    <div className="instructions transparent-box in-from-left">
-      <h2>How to search</h2>
-      <ol>
-        <li>Head to    <div className="symbol"><a target="_blank" href="https://what3words.com/">///</a></div><a target="_blank" href="https://what3words.com/">what3words</a>.</li>
-        <li>Find the 3 words for a location of your choice.</li>
-        <li>Type them into the search box below using full stops in between.</li>
-        <li>A list of flights in your location will appear.</li>
-        <li>Click on the flight for more details.</li>
-      </ol>
+
+    <div className="instructions-container">
+      <div className="instructions transparent-box in-from-right">
+        <h2>How to search</h2>
+        <ol>
+          <li>Head to    <div className="symbol"><a target="_blank" href="https://what3words.com/">///</a></div><a target="_blank" href="https://what3words.com/">what3words</a>.</li>
+          <li>Find the 3 words for a location of your choice.</li>
+          <li>Type them into the search box below using full stops in between.</li>
+          <li>A list of flights in your location will appear.</li>
+          <li>Click on the flight for more details.</li>
+        </ol>
+      </div>
     </div>
     <form onSubmit={handleSubmit} id="search_form">
       <div className="search_container">

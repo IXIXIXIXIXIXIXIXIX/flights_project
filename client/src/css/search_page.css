@@ -33,7 +33,6 @@
 .search_container ::placeholder {
     color: rgba(219, 219, 219, 0.2);
     font-size: 2rem;
-    /* font-style: italic; */
 }
 
 .leaflet-container {
@@ -47,28 +46,17 @@
     justify-content: space-between;
     height: 100%;
 }
+
+.instructions-container {
+    padding-left: 56%;
+}
   
 
 .instructions {
-    justify-content: center;
     height: 200px;
     width: 400px;
-    margin-top: 30px;
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    transition: transform .2s;
-    align-items: center;
-    position: relative;
-    /* margin-left: 25%; */
-    /* text-align: center; */
+    margin:auto;
 }
-
-/* .instructions:active{
-    transition: transform .2s;
-} */
 
 h2 {
     color: white;
