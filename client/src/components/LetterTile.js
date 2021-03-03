@@ -6,8 +6,10 @@ const LetterTile = ({letter, value}) => {
                 <div classname="main-letter">
                     {letter}
                 </div>
+                <div className="letter-bottom-row">
                 <div className="letter-value">
                     {value}
+                </div>
                 </div>
             </div>
         )

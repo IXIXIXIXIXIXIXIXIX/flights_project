@@ -26,11 +26,60 @@
     height: auto;
 }
 
+.skyrabble-word-bar {
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.skyrabble-players-words {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    flex-basis: 50vw;
+}
+
+.skyrabble-single-word {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.main-letter {
+    font-size: larger;
+    position:absolute;
+    top: 225px;
+    z-index: 2;
+
+}
+
+.letter-bottom-row {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: right;
+}
+
+.letter-value {
+    font-size: small;
+}
 .letter-tile {
 
+    /* display: flex;
+    flex-direction: column; */
+    position:relative;
+    text-align: center;
+    color: black;
+    background-color: palegoldenrod;
+    border-radius: 5px;
     font-family: 'News Cycle', sans-serif;
-    height: 50px;
-    width: 50px;
-    margin: 5px;
+    height: 45px;
+    width: 45px;
+    margin: 3px;
+    padding: 4px;
+
 
 }

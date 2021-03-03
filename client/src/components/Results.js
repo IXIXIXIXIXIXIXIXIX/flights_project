@@ -27,7 +27,7 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
         console.log("P1 words:", player1Words);
         console.log("P2 words", player2Words);
 
-
+        // Turn p1 words into a 2D array of LetterTile objects
         const p1Words = player1Words.words.toUpperCase().split(".");
         let p1Score = 0;
         const p1WordTiles = [];
@@ -40,25 +40,38 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
                 p1Score += letterValue;
                 return (<LetterTile letter={currentLetter} value={letterValue} key={index}/>);
             });
-            // let currentWord = []
-            // for(let currentLetter = 0; currentLetter < p1Words[word].length; ++currentLetter)
-            // {
-            //     const letterValue = Letters[p1Words[word][currentLetter]];
-            //     const actualLetter = p1Words[word][currentLetter];
-            //     p1Score += letterValue;
-            //     console.log("letter value",letterValue)
-            //     console.log("Actual Letter", actualLetter)
-            //     currentWord.push(<LetterTile letter={actualLetter} value={letterValue} key={currentLetter}/>);
-            // }
             p1WordTiles.push(<div className="skyrabble-single-word">{currentWord}</div>);
-
         }
-        console.log("score", p1Score);
-        console.log("Just words:", p1Words);
-        console.log("tiles and tiles", p1WordTiles);
 
+        // Turn p1 words into a 2D array of LetterTile objects
+        const p2Words = player2Words.words.toUpperCase().split(".");
+        let p2Score = 0;
+        const p2WordTiles = [];
+
+        for (let word = 0; word < 3; ++word)
+        {
+            const currentWord = p2Words[word].split("").map((currentLetter, index) => {
+
+                const letterValue = Letters[currentLetter];
+                p2Score += letterValue;
+                return (<LetterTile letter={currentLetter} value={letterValue} key={index}/>);
+            });
+            p2WordTiles.push(<div className="skyrabble-single-word">{currentWord}</div>);
+        }
         
-  
+        let winner;
+        if (p1Score > p2Score)
+        {
+            winner = `Player 1 wins with a score of ${p1Score}.`;
+        }
+        else if (p1Score < p2Score)
+        {
+            winner = `Player 2 wins with a score of ${p2Score}.`;
+        }
+        else
+        {
+            winner = `Players are tied at ${p1Score} points.`;
+        }
 
 
         return(
@@ -70,8 +83,13 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
         <div className="main-results-row">
             <SkyRabblePlayerPanel selectedFlight={player2} isPlayer1={false} />
             <div className="skyrabble-centre-column">
+                
                 <div className="skyrabble-contest-result">
+                    <h4>{winner}</h4>
 
+                    <div className="back-button transparent-box" onClick={handleGameReset}>
+                        Reset Game
+                    </div>
                 </div>
             </div>
             <SkyRabblePlayerPanel selectedFlight={player1} isPlayer1={true} />
@@ -81,7 +99,7 @@ const Results = ({selectedFlight, originAirport, destinationAirport, handleBackC
                 {p1WordTiles}
             </div>
             <div className="skyrabble-players-words">
-      
+                {p2WordTiles}
             </div>
         </div>
         </>
