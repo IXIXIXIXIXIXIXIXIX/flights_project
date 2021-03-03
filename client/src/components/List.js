@@ -8,7 +8,7 @@ const planeIcon = new Icon({
 
 });
 
-const List = ({flights, searchCoords, onFlightClick}) => {
+const List = ({flights, searchCoords,handleNextClick, onFlightClick}) => {
 
     // return (
     //     <div className="instructions transparent-box in-from-left">
@@ -126,12 +126,13 @@ const List = ({flights, searchCoords, onFlightClick}) => {
     else
     {
         return (
-        <div className="error transparent-box in-from-left">
+        <div className="error transparent-box in-from-left" onClick={handleNextClick}>
                 <h2>On the bright side, the sky is clear.</h2>
                 <h2>On the other hand, there's nothing to see!</h2>
                 <br></br>
                 <p>Unfortunately we couldn't find any flights in your area.</p>
                 <p>Try searching again</p>
+
           </div>
         );
     }

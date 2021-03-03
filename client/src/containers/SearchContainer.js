@@ -258,7 +258,8 @@ const SearchContainer = () => {
                 <NavBar handleNextClick={handleNextClick}/>
             </header>
             <main className="main-body">
-            <List flights={flights} searchCoords={searchCoords} onFlightClick={(clickedFlight) => {handleFlightClick(clickedFlight)}} />
+            <List flights={flights} searchCoords={searchCoords} handleNextClick={handleNextClick} onFlightClick={(clickedFlight) => {handleFlightClick(clickedFlight)}} />
+
             </main>
             </>
         );
