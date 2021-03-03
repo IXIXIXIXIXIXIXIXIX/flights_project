@@ -4,6 +4,7 @@ import AirportPanel from './AirportPanel';
 import SkyRabblePlayerPanel from './SkyRabblePlayerPanel';
 import Letters from '../assets/Letters';
 import LetterTile from './LetterTile';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const Results = ({selectedFlight, originAirport, destinationAirport, handleBackClick, 
     handlePlayer1Choice, handlePlayer2Choice, player1, player2, player1Words, player2Words}) => {
