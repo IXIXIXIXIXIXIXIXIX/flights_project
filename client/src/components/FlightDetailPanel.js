@@ -70,15 +70,18 @@ const FlightDetailsPanel = ({selectedFlight, handlePlayer1Choice, handlePlayer2C
     return (
             <div className="result-box position-box transparent-box in-from-bottom">
                 <div className="results-skyrabble-heading">
-                    <div className="skyrabble-button-container">
+                    <div className="skyrabble-button-container tooltip">
                         {isPlayer2 ? <span></span> :
                         <span className={isPlayer1 ? "player-button skyrabble-button-active" : "player-button"} 
                         onClick={()=>handlePlayer1Choice(selectedFlight)}>
                             <i className="fas fa-plane"></i> 1</span>}
+
                         {isPlayer1 ? <span></span> :
                         <span className={isPlayer2 ? "player-button skyrabble-button-active" : "player-button"} 
                         onClick={()=>handlePlayer2Choice(selectedFlight)}>
                             <i className="fas fa-plane"></i> 2</span>}
+                            
+                            <span className="tooltiptext-left transparent-box">Choose SkyRabble Players</span>
                     </div>
                     </div>
                 <div className="result-main-head">Callsign: <span className="result-content">{processedFlightInfo[1]}</span></div>
