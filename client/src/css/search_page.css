@@ -114,4 +114,9 @@ a {
     text-align: center;
     /* margin-left: 25%; */
     /* text-align: center; */
+    cursor: pointer;
+}
+
+.error:hover {
+    transform: scale(1.1);
 }
